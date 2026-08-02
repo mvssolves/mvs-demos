@@ -19,8 +19,10 @@
   .list{margin-top:clamp(2.5rem,7vh,4.5rem); border-top:1px solid rgba(232,228,220,.18)}
   a.item{display:grid; grid-template-columns:3rem minmax(0,1fr) auto; gap:1rem 1.5rem;
     align-items:baseline; padding-block:1.5rem; border-bottom:1px solid rgba(232,228,220,.1);
-    text-decoration:none; color:inherit; position:relative; transition:padding-left .5s cubic-bezier(.85,0,.15,1)}
-  a.item:hover{padding-left:.6rem}
+    text-decoration:none; color:inherit; position:relative}
+  /* transform, not padding — nudging padding on hover relayouts the whole row */
+  a.item > *{transition:transform .5s cubic-bezier(.85,0,.15,1)}
+  a.item:hover > *{transform:translateX(.6rem)}
   a.item::after{content:''; position:absolute; left:0; bottom:-1px; height:1px; width:100%;
     background:#E8E4DC; transform:scaleX(0); transform-origin:left;
     transition:transform .6s cubic-bezier(.85,0,.15,1)}
