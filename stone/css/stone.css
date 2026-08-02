@@ -1,0 +1,215 @@
+/* ============================================================
+   GRANGE & SON — architectural stone.
+   Reference: CURA (hard colour split, mass crossing the seam),
+   Direct Lending (stat sidebar, one saturated accent on neutral),
+   Longbow (proof-sheet crosshairs as chrome).
+
+   Chalk and ink carry the page. Cobalt is the only colour and it
+   only ever marks something structural: the ground below the seam,
+   a live link, a selected row. Every photograph is desaturated at
+   source so nothing competes with it.
+   ============================================================ */
+
+:root{
+  --chalk:  #E9E5DC;
+  --chalk-2:#DED9CE;
+  --ink:    #121212;
+  --ink-2:  #4A4843;
+  --ink-3:  #6E6A62;          /* 4.9:1 on chalk */
+  --cobalt: #1E2F87;
+  --cobalt-2:#16226A;
+  --hair:   rgba(18,18,18,.22);
+  --hair-2: rgba(18,18,18,.10);
+  --onblue: rgba(233,229,220,.62);
+
+  --display:'Big Shoulders Display',Impact,sans-serif;
+  --mono:'Chivo Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --pad: clamp(1.1rem, 4vw, 4rem);
+  --cut: cubic-bezier(.85,0,.15,1);   /* machined: fast, flat, decisive */
+  --step: .5s;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; background:var(--chalk)}
+body{
+  margin:0; background:var(--chalk); color:var(--ink);
+  font-family:var(--mono); font-weight:400;
+  font-size:clamp(.8rem,.76rem + .16vw,.875rem); line-height:1.85;
+  letter-spacing:-.005em; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+/* height:auto or the width/height attributes win and aspect-ratio never applies */
+img{max-width:100%; display:block; height:auto}
+a{color:inherit}
+p{margin:0; text-wrap:pretty; max-width:58ch}
+h1,h2,h3{margin:0; font-family:var(--display); font-weight:600;
+  text-transform:uppercase; line-height:.86; letter-spacing:.005em}
+::selection{background:var(--cobalt); color:var(--chalk)}
+:focus-visible{outline:2px solid var(--cobalt); outline-offset:3px}
+
+.wrap{max-width:1440px; margin-inline:auto; padding-inline:var(--pad)}
+.tag{font-family:var(--mono); font-size:.66rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-3)}
+.tag--blue{color:var(--onblue)}
+
+/* ---------- proof-sheet chrome: dashed marks, drawn not decorative ---------- */
+.marks{position:relative}
+.marks::before,.marks::after{content:''; position:absolute; width:9px; height:9px;
+  border:1px solid var(--hair); pointer-events:none}
+.marks::before{top:-5px; left:-5px; border-right:0; border-bottom:0}
+.marks::after{bottom:-5px; right:-5px; border-left:0; border-top:0}
+
+/* ---------- nav ---------- */
+nav{position:sticky; top:0; z-index:40; background:var(--chalk);
+  border-bottom:1px solid var(--hair-2)}
+.nav-in{display:flex; align-items:center; gap:1.5rem; height:58px}
+.mark{font-family:var(--display); font-weight:600; font-size:1.35rem; letter-spacing:.02em;
+  text-transform:uppercase; text-decoration:none; line-height:1}
+.mark sup{font-family:var(--mono); font-size:.5rem; letter-spacing:.14em; vertical-align:super;
+  color:var(--ink-3); margin-left:.6em}
+.nav-links{display:flex; gap:1.35rem; margin-left:auto}
+.nav-links a{font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
+  text-decoration:none; color:var(--ink-2); padding-block:.3rem;
+  border-bottom:1px solid transparent; transition:border-color var(--step) var(--cut), color var(--step) var(--cut)}
+.nav-links a:hover{color:var(--ink); border-bottom-color:var(--cobalt)}
+@media(max-width:820px){.nav-links{display:none}}
+
+/* ---------- hero: the seam ---------- */
+.hero{position:relative}
+.hero-top{position:relative; padding-top:clamp(2.5rem,8vh,6rem); padding-bottom:clamp(9rem,20vh,13rem)}
+.hero h1{font-size:clamp(4.2rem,15vw,15rem); max-width:none}
+.hero h1 .thin{font-weight:300; color:var(--ink-2)}
+.hero-sub{display:flex; flex-wrap:wrap; gap:1rem 3rem; margin-top:2rem;
+  padding-top:1rem; border-top:1px solid var(--hair)}
+.hero-bottom{background:var(--cobalt); color:var(--chalk);
+  padding-top:clamp(7rem,16vh,11rem); padding-bottom:clamp(2.5rem,7vh,4.5rem)}
+.hero-bottom p{color:var(--onblue); max-width:46ch}
+.hero-bottom .tag{color:var(--onblue)}
+
+/* the mass that crosses the seam */
+.seam-block{position:absolute; z-index:2; right:var(--pad); bottom:0;
+  width:clamp(9rem,24vw,20rem); transform:translateY(46%);
+  border:1px solid rgba(233,229,220,.28)}
+.seam-block img{width:100%; aspect-ratio:4/5; object-fit:cover}
+.seam-cap{position:absolute; top:calc(100% + .5rem); right:0; white-space:nowrap;
+  font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color:var(--onblue)}
+@media(max-width:720px){
+  .seam-block{width:8rem; transform:translateY(40%)}
+  .seam-cap{display:none}
+}
+
+/* ---------- spec rows ---------- */
+.spec{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0;
+  border-top:1px solid var(--hair)}
+.spec div{padding:1rem 1rem 1.2rem 0; border-right:1px solid var(--hair-2)}
+.spec div:last-child{border-right:0}
+.spec b{display:block; font-family:var(--display); font-weight:500; font-size:clamp(1.8rem,4vw,3rem);
+  line-height:.9; letter-spacing:0; margin-bottom:.35rem}
+@media(max-width:720px){.spec{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(3.5rem,11vh,8rem)}
+.head{display:grid; grid-template-columns:7rem minmax(0,1fr); gap:1.5rem;
+  border-top:1px solid var(--ink); padding-top:1rem; margin-bottom:clamp(2rem,6vh,4rem)}
+.head h2{font-size:clamp(2.2rem,6vw,4.6rem)}
+.head .tag{padding-top:.5rem}
+@media(max-width:720px){.head{grid-template-columns:1fr; gap:.5rem}}
+
+/* ---------- cut list ---------- */
+.cuts{border-top:1px solid var(--hair)}
+.cut{display:grid; grid-template-columns:4rem minmax(0,1.4fr) minmax(0,1fr) 7rem;
+  gap:1rem 1.5rem; align-items:baseline; padding-block:1.15rem;
+  border-bottom:1px solid var(--hair-2); position:relative; transition:color var(--step) var(--cut)}
+.cut::after{content:''; position:absolute; left:0; bottom:-1px; height:1px; width:100%;
+  background:var(--cobalt); transform:scaleX(0); transform-origin:left;
+  transition:transform .6s var(--cut)}
+.cut:hover::after{transform:scaleX(1)}
+.cut:hover .cut-n{color:var(--cobalt)}
+.cut-n{font-size:.66rem; letter-spacing:.14em; color:var(--ink-3); transition:color var(--step) var(--cut)}
+.cut h3{font-family:var(--display); font-weight:500; font-size:clamp(1.4rem,3vw,2.1rem); letter-spacing:.01em}
+.cut p{font-size:.78rem; color:var(--ink-3); line-height:1.7}
+.cut .fig{text-align:right; font-size:.72rem; letter-spacing:.06em; color:var(--ink-2); white-space:nowrap}
+@media(max-width:820px){
+  .cut{grid-template-columns:3rem minmax(0,1fr); }
+  .cut p,.cut .fig{grid-column:2}
+  .cut .fig{text-align:left}
+}
+
+/* ---------- plates ---------- */
+.plates{display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:clamp(.6rem,1.4vw,1.2rem)}
+.plate{position:relative; overflow:hidden}
+.plate img{width:100%; height:100%; object-fit:cover; filter:contrast(1.06)}
+.plate figcaption{margin-top:.6rem; font-size:.62rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-3)}
+.p-1{grid-column:span 7} .p-2{grid-column:span 5; align-self:end}
+.p-3{grid-column:span 4} .p-4{grid-column:span 8}
+@media(max-width:720px){.p-1,.p-2,.p-3,.p-4{grid-column:span 12}}
+
+/* blind wipe — four hard columns, machined not feathered */
+.blind{position:relative}
+.blind::after{content:''; position:absolute; inset:0; background:var(--chalk);
+  clip-path:inset(0 0 0 0);
+  transition:clip-path 1s var(--cut)}
+.js .blind.pre::after{clip-path:inset(0 0 0 0)}
+.js .blind:not(.pre)::after{clip-path:inset(0 0 0 100%)}
+
+/* ---------- ground band (cobalt) ---------- */
+.ground{background:var(--cobalt); color:var(--chalk)}
+.ground .tag{color:var(--onblue)}
+.ground p{color:var(--onblue)}
+.ground .head{border-top-color:rgba(233,229,220,.55)}
+.ground .cuts{border-top-color:rgba(233,229,220,.35)}
+.ground .cut{border-bottom-color:rgba(233,229,220,.18)}
+.ground .cut p{color:var(--onblue)}
+.ground .cut::after{background:var(--chalk)}
+.ground .cut-n,.ground .cut .fig{color:var(--onblue)}
+
+/* ---------- index table ---------- */
+.index{width:100%; border-collapse:collapse; margin-top:1rem}
+.index th{text-align:left; font-weight:400; font-size:.62rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--ink-3); padding:0 1rem .7rem 0;
+  border-bottom:1px solid var(--hair)}
+.index td{padding:.85rem 1rem .85rem 0; border-bottom:1px solid var(--hair-2); font-size:.76rem; vertical-align:top}
+.index tr:hover td{background:rgba(30,47,135,.05)}
+.index td:first-child{color:var(--ink-3); letter-spacing:.1em; white-space:nowrap}
+
+/* ---------- link ---------- */
+.go{display:inline-flex; align-items:center; gap:.7rem; text-decoration:none;
+  font-size:.68rem; letter-spacing:.18em; text-transform:uppercase;
+  padding:.75rem 1.1rem; border:1px solid var(--ink); background:none; cursor:pointer;
+  transition:background-color var(--step) var(--cut), color var(--step) var(--cut), border-color var(--step) var(--cut)}
+.go:hover{background:var(--cobalt); border-color:var(--cobalt); color:var(--chalk)}
+.go--invert{border-color:rgba(233,229,220,.5); color:var(--chalk)}
+.go--invert:hover{background:var(--chalk); border-color:var(--chalk); color:var(--cobalt)}
+
+/* ---------- quote ---------- */
+.quote{font-family:var(--display); font-weight:400; text-transform:none;
+  font-size:clamp(1.6rem,4.2vw,3.2rem); line-height:1.02; letter-spacing:.005em; max-width:20ch}
+
+/* ---------- form ---------- */
+.form{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.6rem 2rem; margin-top:2rem}
+.f{display:flex; flex-direction:column; gap:.5rem}
+.f.wide{grid-column:1/-1}
+.f label{font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; color:var(--onblue)}
+.f input,.f select,.f textarea{background:none; border:0; border-bottom:1px solid rgba(233,229,220,.4);
+  border-radius:0; padding:.5rem 0; color:var(--chalk); font-family:var(--mono); font-size:.85rem;
+  transition:border-color var(--step) var(--cut)}
+.f textarea{min-height:5.5rem; resize:vertical; line-height:1.7}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none; border-bottom-color:var(--chalk)}
+.f option{color:var(--ink)}
+@media(max-width:720px){.form{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--hair); padding-block:2.5rem}
+.foot{display:flex; flex-wrap:wrap; gap:1rem 2.5rem; align-items:baseline}
+.foot .tag:first-child{margin-right:auto}
+
+/* ---------- reveal ---------- */
+@media (prefers-reduced-motion: no-preference){
+  .js .rv{transition:opacity .75s var(--cut), transform .75s var(--cut)}
+  .js .rv.pre{opacity:0; transform:translateY(14px)}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition-duration:.01ms !important}
+  .js .blind::after{display:none}
+}
