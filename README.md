@@ -55,3 +55,47 @@ Traced to entries in `04 Web Projects/inspiration.md`, not invented:
 - **Wren Street** — ABL (abstract macro over stock medical), Medico (packaging form as UI shape), La Caminera (CTA segmented by visitor type)
 - **Blacksmith Row** — XNRGY (peak action doing motion's job), Fashora (subject against huge type), CINETIK (one accent, used identically everywhere)
 - **Ridley & Vaux** — Direct Lending (figures as credibility), AGENTURA (portrait-free restraint), PRØDUX (image and philosophy making the same argument)
+
+
+## Mobile
+
+Every site is built for a phone first-class, not shrunk into one.
+
+- A burger and a full-screen panel in each site's own palette and display face.
+  Links rise in sequence, escape closes, scroll locks behind it, and a resize
+  guard closes it if the viewport grows past the breakpoint.
+- Clinic and Forge keep their booking action in the header at a shortened label;
+  the other three have no header action to keep.
+- Audited at 375px: **no horizontal overflow anywhere, nothing interactive under
+  44px**, every image carries alt text, every field carries a label.
+- Touch rules are keyed off viewport width as well as pointer type, because a
+  narrow window on a laptop still gets imprecise input.
+
+## Interaction, where the content earns it
+
+Each site got one interaction its own data actually needed — not motion for
+decoration:
+
+| Site | Interaction |
+|---|---|
+| Grange & Son | Bed densities convert in place, kg/m³ ↔ lb/ft³ |
+| Blacksmith Row | The 18-session timetable filters by day, with a live count |
+| Ridley & Vaux | The members index filters to silks or juniors — 3 + 8 = 11 |
+| Wren Street | Booking writes back a live summary (slot, reason, visit length) and validates properly |
+| Coldharbour | Nothing. Stillness is the argument; its parallax is deliberately inert |
+
+## Motion layers
+
+1. Reveals that pre-hide **only** below the fold, so nothing visible can flash.
+2. Nav retracts on the way down, returns on the way up, past the fold only.
+3. Scroll-linked depth inside framed images, driven through a `--py` custom
+   property so hover and reveal states compose with it rather than fighting an
+   inline transform.
+
+All of it disables under `prefers-reduced-motion`, and every page renders
+complete with JavaScript off.
+
+## Share cards
+
+Each site has a generated 1200×630 `og.png` built from its own palette, display
+face and headline — a pasted link looks like the site it points at.
