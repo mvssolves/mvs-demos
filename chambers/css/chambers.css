@@ -261,9 +261,13 @@ body.nav-up nav{transform:translateY(-105%)}
 
 :root{--mm-ease:cubic-bezier(.22,.9,.28,1)}
 
-/* touch targets and tap feedback */
-@media(hover:none){
+/* Touch targets. Keyed off width as well as pointer type — a narrow window on
+   a laptop still gets fingers on a trackpad, and 31px chips were failing the
+   44px minimum. */
+@media(hover:none),(max-width:880px){
   a,button{-webkit-tap-highlight-color:transparent}
-  nav a,.go,.btn,.pill,.slot{min-height:44px}
-  .go,.btn,.pill{display:inline-flex; align-items:center}
+  nav a,.go,.btn,.pill,.slot,.chip,.unit,.foot a{min-height:44px}
+  .foot a{display:inline-flex; align-items:center}
+  .go,.btn,.pill,.chip,.unit{display:inline-flex; align-items:center; justify-content:center}
+  .chip,.unit{padding-inline:1rem}
 }
