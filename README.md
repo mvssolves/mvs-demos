@@ -29,9 +29,9 @@ Static. No framework, no build step, no dependencies.
 
 | | Build | Sector | System |
 |---|---|---|---|
-| 07 | **Micron** | Paint correction, Costa Mesa | Graphite `#14171B` with acid lime `#AFE955` carrying two whole sections. Familjen Grotesk / Spline Sans Mono. Measured density. |
-| 08 | **Icehouse** | 28 lofts, DTLA | Cold slate `#334551` — the only mid-tone ground in the library — with brass `#E0AE5D`. Young Serif / Rethink Sans. Cinematic. |
-| 09 | **Dispatch** | Heating, air & electrical | Utility green `#014529` with hi-vis `#FF8D00`. Saira / Sometype Mono. Dense and board-like. |
+| 01 | **Micron** | Paint correction, Costa Mesa | Graphite `#14171B` with acid lime `#AFE955` carrying two whole sections. Familjen Grotesk / Spline Sans Mono. Measured density. |
+| 02 | **Icehouse** | 28 lofts, DTLA | Cold slate `#334551` — the only mid-tone ground in the library — with brass `#E0AE5D`. Young Serif / Rethink Sans. Cinematic. |
+| 03 | **Dispatch** | Heating, air & electrical | Utility green `#014529` with hi-vis `#FF8D00`. Saira / Sometype Mono. Dense and board-like. |
 
 **The gamble in each:**
 
@@ -53,22 +53,14 @@ Static. No framework, no build step, no dependencies.
 ### Round two — US market, saturated colour
 
 Built after round one was judged too quiet, too samey and too lightly animated.
-The brief and the reasoning are in `BRIEF-round-2.md`; project context is in
-`PRODUCT.md`.
+Round one has since been removed from the library entirely. The brief and the
+reasoning are in `BRIEF-round-2.md`; project context is in `PRODUCT.md`.
 
 | | Build | Sector | System |
 |---|---|---|---|
 | 04 | **Oyster** | Skin studio, Newport Beach | Abyss `#00181B` drenched, nacre `#27DED6`. Anybody / Hanken Grotesk — no serif, no mono. A WebGL thin-film shader over the hero. Airy to near-empty. |
 | 05 | **Datum** | Excavation, Inland Empire | Chalk-line ultramarine `#1735BF` carrying half the surface, concrete `#D3D6DA`. Bricolage Grotesque / Martian Mono. Packed and gridded. |
 | 06 | **Marrow** | Live-fire restaurant, LA | Ember `#A01B00` drenched, flame `#FF9B24`. Big Shoulders / Manrope. Violent contrast — empty, then dense, then empty. |
-
-### Round one — British, restrained
-
-| | Build | Sector | System |
-|---|---|---|---|
-| 01 | **Wren Street** | Private clinic | Paper `#F6F4F0` + iodine violet `#4B3A6B`. Instrument Serif / Karla. The capsule is the recurring container shape; abstract micrographs replace stock medical photography. |
-| 02 | **Blacksmith Row** | Barbell gym | Ink `#0E0E0D` + one sulphur `#D6DE49` that only ever marks a number or something pressable. Archivo Black / Archivo / DM Mono. |
-| 03 | **Ridley & Vaux** | Barristers' chambers | Shell `#F2F0EB` + oxblood `#6B2230`. Petrona / IBM Plex Mono. No photographs of people anywhere. |
 
 ## Where the directions come from
 
@@ -80,12 +72,6 @@ Traced to entries in `04 Web Projects/inspiration.md`, not invented:
   (geometric overlay as the whole design), Longbow (crosshairs as engineering)
 - **Marrow** — IZANAMI (panel transitions, scramble reveal, sound toggle),
   sakazuki (macro as hero), INDIGO (audio behind an explicit toggle)
-- **Wren Street** — ABL (abstract macro instead of stock medical), Medico
-  (packaging form used as the UI shape), La Caminera (CTA segmented by visitor type)
-- **Blacksmith Row** — XNRGY (peak action doing motion's job), Fashora (subject
-  against huge type), CINETIK (one accent, used identically everywhere)
-- **Ridley & Vaux** — Direct Lending (figures as credibility), AGENTURA
-  (portrait-free restraint), PRØDUX (image and philosophy making the same argument)
 
 ## What round two changed, and why
 
@@ -96,7 +82,7 @@ choices outright before a line of CSS was written:
   defaults that produce monoculture.
 - **Editorial-typographic** — display serif, small mono labels, ruled separators,
   monochrome restraint. Named as a saturated aesthetic lane, and an exact
-  description of all three round-one builds.
+  description of all three round-one builds, which is why they are gone.
 - **Oyster shell / nacre / warm bone** — the cream-sand-beige body background
   under a nicer name, flagged as the saturated default of 2026.
 
@@ -129,9 +115,6 @@ Each build got one interaction its own data needed — not motion for decoration
 | Oyster | Selecting treatments totals the price *and* says how many visits it actually takes, rather than implying one afternoon |
 | Datum | An estimator that runs a real takeoff — length × width × depth, swell factor by soil type, end-dump loads, working days |
 | Marrow | A hearth synthesised in Web Audio: filtered brown noise plus scheduled decaying crackles. Off by default, behind a labelled toggle |
-| Wren Street | Booking writes back a live summary (slot, reason, the visit length that reason implies) and validates properly |
-| Blacksmith Row | The 18-session timetable filters by day, with a live count |
-| Ridley & Vaux | The members index filters to silks or juniors — 3 + 8 = 11, matching the hero |
 
 ## Motion
 
@@ -163,7 +146,11 @@ Built for phones first-class, not shrunk into one.
 
 ## Previously here
 
-Two earlier builds — Grange & Son (architectural stone) and Coldharbour
-(single-cask distillery) — were removed from the library. They remain in git
-history if the CURA colour-split or the AIR letter-spacing treatment is ever
-wanted again.
+Five builds have been removed from the library and remain in git history:
+Grange & Son (architectural stone), Coldharbour (single-cask distillery), and
+the whole of round one — Wren Street (private clinic), Blacksmith Row (barbell
+gym) and Ridley & Vaux (barristers' chambers).
+
+Round one was retired on 2026-08-02 rather than repaired. It shared one recipe
+across three builds — off-white or near-black ground, one accent, serif display
+over a grotesk — which is the exact thing a demo library exists to disprove.
