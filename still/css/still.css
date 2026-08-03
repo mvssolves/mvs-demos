@@ -1,174 +1,189 @@
 /* ============================================================
    COLDHARBOUR — single cask, bottled at strength.
-   Reference: sakazuki (macro liquid full-bleed, mark placed at the
-   focal point), AIR (letter-spacing as the layout), sen (background
+   Reference: sakazuki (macro material full-bleed, mark at the focal
+   point), AIR (letter-spacing as the layout), sen (background
    sampled from the material itself).
 
-   Paper and ink. The only colour on the page comes out of the
-   photography — amber, borrowed, never invented. Motion is almost
-   absent on purpose: a page that hurries reads cheap.
+   Paper and ink. The only colour comes out of the photography —
+   amber, borrowed, never invented. Motion is nearly absent on
+   purpose: a page that hurries reads cheap.
+
+   Everything is centred EXCEPT the data. Ledgers and notes run as
+   left/right rules so the page has a spine to read against instead
+   of one endless centred column.
    ============================================================ */
 
 :root{
   --paper:  #F4F1EA;
-  --paper-2:#EAE5DA;
+  --paper-2:#ECE6DB;
   --ink:    #17130F;
-  --ink-2:  #5A524A;
-  --ink-3:  #8A8175;          /* 4.6:1 on paper — labels only, never body */
+  --ink-2:  #4E463D;          /* 8.1:1 on paper */
+  --ink-3:  #7B7266;          /* 4.6:1 — labels only */
   --amber:  #A9662A;
-  --hair:   rgba(23,19,15,.16);
-  --hair-2: rgba(23,19,15,.07);
+  --hair:   rgba(23,19,15,.18);
+  --hair-2: rgba(23,19,15,.08);
+  --onink:  rgba(244,241,234,.74);
+  --onink-2:rgba(244,241,234,.42);
 
   --display:'Italiana',Didot,'Bodoni MT',serif;
   --ui:'Jost',system-ui,-apple-system,sans-serif;
 
-  --pad: clamp(1.25rem,6vw,7rem);
+  --s1:.5rem; --s2:1rem; --s3:1.75rem; --s4:2.75rem;
+  --s5:clamp(3rem,7vh,5rem); --s6:clamp(5rem,15vh,10rem);
+
+  --pad: clamp(1.25rem,5vw,5.5rem);
   --ease: cubic-bezier(.25,.8,.25,1);
-  --long: 1.6s;
+  --long:1.5s;
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%; background:var(--paper)}
+html{-webkit-text-size-adjust:100%; background:var(--paper); scroll-behavior:smooth}
 body{
   margin:0; background:var(--paper); color:var(--ink);
   font-family:var(--ui); font-weight:300;
-  font-size:clamp(.9rem,.86rem + .2vw,1rem); line-height:1.95;
+  font-size:clamp(.94rem,.9rem + .2vw,1.04rem); line-height:1.78;
   -webkit-font-smoothing:antialiased; overflow-x:hidden;
 }
 img{max-width:100%; display:block; height:auto}
 a{color:inherit}
 p{margin:0; text-wrap:pretty}
-h1,h2,h3{margin:0; font-family:var(--display); font-weight:400; line-height:1.04}
+h1,h2,h3{margin:0; font-family:var(--display); font-weight:400; line-height:1.06}
 ::selection{background:var(--amber); color:var(--paper)}
 :focus-visible{outline:1px solid var(--amber); outline-offset:5px}
 
 .wrap{max-width:1180px; margin-inline:auto; padding-inline:var(--pad)}
-.mark-t{font-family:var(--ui); font-size:.6rem; font-weight:400; letter-spacing:.34em;
-  text-transform:uppercase; color:var(--ink-3)}
-.rule{height:1px; background:var(--hair); width:100%}
+.wrap--narrow{max-width:760px}
+.k{display:block; font-family:var(--ui); font-size:.6rem; font-weight:400;
+  letter-spacing:.32em; text-transform:uppercase; color:var(--ink-3); line-height:1.7}
 
-/* ---------- nav: three columns, museum plaque ---------- */
-nav{position:absolute; inset-inline:0; top:0; z-index:20; padding-top:clamp(1.4rem,4vh,2.4rem)}
-.nav-in{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:1rem}
+/* ---------- nav ---------- */
+nav{position:absolute; inset-inline:0; top:0; z-index:20; padding-top:clamp(1.3rem,3.5vh,2.2rem)}
+.nav-in{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:var(--s2)}
 .nav-in .l{justify-self:start} .nav-in .r{justify-self:end}
 .nav-in a{text-decoration:none}
-.nav-links{display:flex; gap:1.6rem}
-@media(max-width:760px){.nav-links{display:none}}
+.nav-links{display:flex; gap:var(--s3)}
+nav .k{color:var(--onink-2); transition:color .8s var(--ease)}
+nav a:hover .k, nav a.k:hover{color:var(--paper)}
+@media(max-width:760px){.nav-links{display:none} .nav-in{grid-template-columns:1fr}}
 
 /* ---------- hero ---------- */
 .hero{position:relative; min-height:100svh; display:grid; place-items:center;
-  overflow:hidden; text-align:center; padding-inline:var(--pad)}
+  overflow:hidden; text-align:center; padding:clamp(5rem,14vh,8rem) var(--pad)}
 .hero-media{position:absolute; inset:0; z-index:0}
 .hero-media img{width:100%; height:100%; object-fit:cover}
-/* Two scrims: a flat one so type is legible over any frame, and a radial one
-   that pulls the eye to the centre where the mark sits. */
+/* two scrims: one flat for legibility, one radial to hold the centre */
 .hero-media::after{content:''; position:absolute; inset:0;
   background:
-    radial-gradient(105% 75% at 50% 48%, rgba(23,19,15,.30) 0%, rgba(23,19,15,.86) 100%),
-    linear-gradient(180deg, rgba(23,19,15,.42) 0%, rgba(23,19,15,.30) 45%, rgba(23,19,15,.62) 100%)}
-.hero-in{position:relative; z-index:1; color:var(--paper)}
+    radial-gradient(105% 75% at 50% 48%, rgba(23,19,15,.28) 0%, rgba(23,19,15,.88) 100%),
+    linear-gradient(180deg, rgba(23,19,15,.44) 0%, rgba(23,19,15,.30) 45%, rgba(23,19,15,.66) 100%)}
+.hero-in{position:relative; z-index:1; color:var(--paper); max-width:44rem}
 
-/* the wordmark spreads as it settles — AIR's move, done once */
 .spread{font-family:var(--display); text-transform:uppercase;
-  font-size:clamp(2.4rem,9vw,7rem); line-height:1;
-  letter-spacing:.06em; color:var(--paper);
-  transition:letter-spacing 2.4s var(--ease), opacity 1.8s var(--ease)}
-.js .spread.pre{letter-spacing:.4em; opacity:0}
-.hero .est{margin-top:clamp(1.2rem,4vh,2.2rem); color:rgba(244,241,234,.72)}
-.hero .lede{margin-top:1.6rem; margin-inline:auto; max-width:34ch;
-  font-size:clamp(.92rem,.88rem + .2vw,1.05rem); color:rgba(244,241,234,.82)}
-.hero-foot{position:absolute; inset-inline:var(--pad); bottom:clamp(1.4rem,4vh,2.4rem);
-  z-index:1; display:flex; justify-content:space-between; gap:1rem}
-.hero-foot span{color:rgba(244,241,234,.6)}
+  font-size:clamp(2.2rem,8vw,6.2rem); line-height:1; letter-spacing:.08em; color:var(--paper);
+  transition:letter-spacing 2.2s var(--ease), opacity 1.6s var(--ease)}
+.js .spread.pre{letter-spacing:.38em; opacity:0}
+.hero .k{margin-top:clamp(1rem,3vh,1.8rem); color:var(--onink-2)}
+.hero .lede{margin-top:var(--s3); margin-inline:auto; max-width:36ch;
+  font-size:clamp(.95rem,.92rem + .2vw,1.1rem); color:var(--onink)}
+.hero-foot{position:absolute; inset-inline:var(--pad); bottom:clamp(1.3rem,3.5vh,2.2rem);
+  z-index:1; display:flex; justify-content:space-between; gap:var(--s2)}
+.hero-foot .k{color:var(--onink-2)}
+@media(max-width:600px){.hero-foot{flex-direction:column; align-items:center; text-align:center}}
 
 /* ---------- sections ---------- */
-section{padding-block:clamp(4.5rem,16vh,11rem)}
+section{padding-block:var(--s6)}
 .center{text-align:center}
-.stmt{font-family:var(--display); font-size:clamp(1.8rem,4.6vw,3.6rem);
-  line-height:1.16; max-width:22ch; margin-inline:auto}
+.stmt{font-family:var(--display); font-size:clamp(1.7rem,4.2vw,3.2rem);
+  line-height:1.2; max-width:20ch; margin-inline:auto}
 .stmt em{font-style:normal; color:var(--amber)}
-.body{max-width:52ch; margin-inline:auto; margin-top:clamp(1.6rem,4vh,2.6rem); color:var(--ink-2)}
-.body + .body{margin-top:1.3rem}
+.body{max-width:50ch; margin-inline:auto; color:var(--ink-2)}
+.mt-2{margin-top:var(--s2)} .mt-3{margin-top:var(--s3)}
+.mt-4{margin-top:var(--s4)} .mt-5{margin-top:var(--s5)}
 
-/* ---------- plate: full-bleed material ---------- */
-.plate{position:relative; overflow:hidden}
-.plate img{width:100%; height:clamp(22rem,72svh,44rem); object-fit:cover;
-  transform:scale(1.06); transition:transform 2.4s var(--ease)}
-.js .plate.pre img{transform:scale(1.14)}
-.plate figcaption{position:absolute; left:var(--pad); bottom:clamp(1rem,3vh,1.8rem);
-  color:rgba(244,241,234,.72); font-size:.6rem; letter-spacing:.28em; text-transform:uppercase}
+/* ---------- plate ---------- */
+.plate{position:relative; overflow:hidden; margin:0}
+.plate img{width:100%; height:clamp(20rem,64svh,38rem); object-fit:cover;
+  transform:scale(1.05); transition:transform 2.2s var(--ease)}
+.js .plate.pre img{transform:scale(1.12)}
+.plate figcaption{position:absolute; left:var(--pad); bottom:clamp(.9rem,2.5vh,1.5rem);
+  color:var(--onink-2); font-size:.6rem; letter-spacing:.26em; text-transform:uppercase}
 
-/* ---------- the ledger: batch data, set like a label ---------- */
-.ledger{max-width:46rem; margin-inline:auto; margin-top:clamp(2rem,6vh,3.5rem);
-  border-top:1px solid var(--hair)}
-.row{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:2rem;
-  padding-block:.95rem; border-bottom:1px solid var(--hair-2); align-items:baseline}
-.row dt{color:var(--ink-3); font-size:.66rem; letter-spacing:.24em; text-transform:uppercase}
-.row dd{margin:0; font-family:var(--display); font-size:clamp(1rem,1.6vw,1.35rem);
+/* ---------- ledger: left label, right value, a real spine ---------- */
+.ledger{max-width:44rem; margin-inline:auto; border-top:1px solid var(--hair); text-align:left}
+.row{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:var(--s3);
+  padding-block:.85rem; border-bottom:1px solid var(--hair-2); align-items:baseline}
+.row dt{color:var(--ink-3); font-size:.62rem; letter-spacing:.26em; text-transform:uppercase}
+.row dd{margin:0; font-family:var(--display); font-size:clamp(1rem,1.5vw,1.3rem);
   letter-spacing:.02em; text-align:right}
 
-/* ---------- notes: a vertical tasting list, centred ---------- */
-.notes{list-style:none; margin:clamp(2rem,6vh,3.5rem) 0 0; padding:0; text-align:center}
-.notes li{padding-block:clamp(.9rem,2.4vh,1.4rem); border-top:1px solid var(--hair-2)}
+/* ---------- notes ---------- */
+.notes{list-style:none; margin:0; padding:0; max-width:44rem; margin-inline:auto; text-align:left}
+.notes li{display:grid; grid-template-columns:6.5rem minmax(0,1fr); gap:var(--s3);
+  align-items:baseline; padding-block:var(--s3); border-top:1px solid var(--hair-2)}
 .notes li:first-child{border-top:0}
-.notes .n-k{display:block; font-size:.6rem; letter-spacing:.3em;
-  text-transform:uppercase; color:var(--ink-3); margin-bottom:.5rem}
-.notes .n-v{font-family:var(--display); font-size:clamp(1.15rem,2.6vw,1.9rem); letter-spacing:.02em}
+.notes .n-k{font-size:.6rem; letter-spacing:.28em; text-transform:uppercase; color:var(--ink-3)}
+.notes .n-v{font-family:var(--display); font-size:clamp(1.1rem,2.2vw,1.7rem); letter-spacing:.02em}
+@media(max-width:600px){.notes li{grid-template-columns:1fr; gap:.4rem}}
 
-/* ---------- releases: three plates, no cards ---------- */
-.releases{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(1.5rem,5vw,4rem);
-  margin-top:clamp(2.5rem,7vh,4.5rem)}
-.rel figure{margin:0; overflow:hidden; background:var(--paper-2)}
-.rel img{width:100%; aspect-ratio:4/5; object-fit:cover;
-  transition:transform 2s var(--ease)}
-.rel:hover img{transform:scale(1.03)}
-.rel h3{margin-top:1.1rem; font-size:clamp(1.15rem,2.2vw,1.6rem); letter-spacing:.02em}
-.rel .meta{margin-top:.5rem; font-size:.62rem; letter-spacing:.24em;
+/* ---------- releases ---------- */
+.releases{display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(1.5rem,4vw,3.5rem); margin-top:var(--s5); text-align:left}
+.rel figure{margin:0; overflow:hidden; background:var(--paper-2); aspect-ratio:4/5; position:relative}
+.rel img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  transition:transform 1.8s var(--ease)}
+.rel:hover img{transform:scale(1.04)}
+.rel h3{margin-top:var(--s2); font-size:clamp(1.1rem,2vw,1.5rem); letter-spacing:.02em}
+.rel .meta{margin-top:.35rem; font-size:.6rem; letter-spacing:.22em;
   text-transform:uppercase; color:var(--ink-3)}
-.rel .price{margin-top:.9rem; font-family:var(--display); font-size:1.05rem; color:var(--amber)}
-@media(max-width:760px){.releases{grid-template-columns:1fr; gap:2.5rem}}
+.rel .price{margin-top:.75rem; padding-top:.75rem; border-top:1px solid var(--hair-2);
+  font-family:var(--display); font-size:1.05rem; color:var(--amber)}
+@media(max-width:760px){.releases{grid-template-columns:1fr; gap:var(--s4)}}
 
-/* ---------- band: sampled from the liquid ---------- */
+/* ---------- ink band ---------- */
 .band{background:var(--ink); color:var(--paper)}
 .band .stmt{color:var(--paper)}
-.band .body{color:rgba(244,241,234,.7)}
-.band .mark-t{color:rgba(244,241,234,.5)}
-.band .row{border-bottom-color:rgba(244,241,234,.12)}
-.band .ledger{border-top-color:rgba(244,241,234,.3)}
-.band .row dt{color:rgba(244,241,234,.5)}
+.band .body{color:var(--onink)}
+.band .k{color:var(--onink-2)}
+.band .ledger{border-top-color:var(--onink-2)}
+.band .row{border-bottom-color:rgba(244,241,234,.13)}
+.band .row dt{color:var(--onink-2)}
 
 /* ---------- link ---------- */
 .go{display:inline-block; text-decoration:none; font-size:.62rem; letter-spacing:.3em;
-  text-transform:uppercase; padding-bottom:.5rem; position:relative;
-  margin-top:clamp(2rem,5vh,3rem); color:inherit}
+  text-transform:uppercase; padding-bottom:.5rem; position:relative; color:inherit;
+  background:none; border:0; cursor:pointer; font-family:var(--ui)}
 .go::after{content:''; position:absolute; inset-inline:0; bottom:0; height:1px;
-  background:currentColor; opacity:.35; transition:opacity .9s var(--ease)}
+  background:currentColor; opacity:.35; transition:opacity .8s var(--ease)}
 .go:hover::after{opacity:1}
 
 /* ---------- form ---------- */
-.form{max-width:34rem; margin-inline:auto; margin-top:clamp(2rem,5vh,3rem);
-  display:grid; gap:1.6rem}
-.f{display:grid; gap:.55rem; text-align:left}
-.f label{font-size:.6rem; letter-spacing:.28em; text-transform:uppercase; color:var(--ink-3)}
+.form{max-width:30rem; margin-inline:auto; margin-top:var(--s5); display:grid; gap:var(--s3)}
+.f{display:grid; gap:.5rem; text-align:left}
+.f label{font-size:.6rem; letter-spacing:.26em; text-transform:uppercase; color:var(--ink-3)}
 .f input,.f select{background:none; border:0; border-bottom:1px solid var(--hair);
   border-radius:0; padding:.5rem 0; color:var(--ink); font-family:var(--ui);
-  font-weight:300; font-size:1rem; transition:border-color .9s var(--ease)}
+  font-weight:300; font-size:1rem; transition:border-color .8s var(--ease)}
 .f input:focus,.f select:focus{outline:none; border-bottom-color:var(--amber)}
+.form-go{justify-self:center}
+.form-state{text-align:center}
 
 /* ---------- footer ---------- */
-footer{padding-block:clamp(2.5rem,7vh,4rem); border-top:1px solid var(--hair)}
-.foot{display:grid; grid-template-columns:1fr auto 1fr; gap:1rem; align-items:center}
+footer{padding-block:var(--s4); border-top:1px solid var(--hair)}
+.foot{display:grid; grid-template-columns:1fr auto 1fr; gap:var(--s2); align-items:center}
 .foot .r{justify-self:end} .foot .c{justify-self:center}
-@media(max-width:640px){.foot{grid-template-columns:1fr; text-align:center; gap:.75rem}
-  .foot .r,.foot .c{justify-self:center}}
+.foot a{text-decoration:none}
+@media(max-width:640px){
+  .foot{grid-template-columns:1fr; text-align:center; gap:.6rem}
+  .foot .r,.foot .c{justify-self:center}
+}
 
-/* ---------- reveal: long, quiet ---------- */
+/* ---------- reveal ---------- */
 @media (prefers-reduced-motion: no-preference){
   .js .rv{transition:opacity var(--long) var(--ease), transform var(--long) var(--ease)}
-  .js .rv.pre{opacity:0; transform:translateY(16px)}
+  .js .rv.pre{opacity:0; transform:translateY(14px)}
 }
 @media (prefers-reduced-motion: reduce){
   *{transition-duration:.01ms !important}
-  .js .spread.pre{letter-spacing:.06em; opacity:1}
-  .js .plate.pre img{transform:scale(1.06)}
+  .js .spread.pre{letter-spacing:.08em; opacity:1}
+  .js .plate.pre img{transform:scale(1.05)}
 }
