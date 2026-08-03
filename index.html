@@ -142,18 +142,74 @@ footer{border-top:1px solid var(--hair); padding-block:2.5rem}
   <div class="filters" role="group" aria-label="Filter by sector">
     <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
     <button class="chip" type="button" data-f="health" aria-pressed="false">Health</button>
+    <button class="chip" type="button" data-f="trades" aria-pressed="false">Trades</button>
+    <button class="chip" type="button" data-f="food" aria-pressed="false">Food</button>
     <button class="chip" type="button" data-f="sport" aria-pressed="false">Sport</button>
     <button class="chip" type="button" data-f="professional" aria-pressed="false">Professional</button>
-    <span class="count" id="count" aria-live="polite">3 builds</span>
+    <span class="count" id="count" aria-live="polite">6 builds</span>
   </div>
 </div>
 
 <main class="wrap" id="library">
   <div class="grid">
 
+    <a class="card rv" href="oyster/" data-sector="health">
+      <span class="shot">
+        <img src="oyster/preview.jpg" width="1920" height="1200" loading="eager"
+             alt="Oyster landing page: iridescent film over near-black, headed 'Skin is an organ. We treat it like one.'">
+        <span class="open">Open build →</span>
+      </span>
+      <span class="card-in">
+        <h2>Oyster</h2>
+        <span class="trade">Skin studio</span>
+        <p>A WebGL thin-film shader runs over the hero photograph and tracks the cursor — iridescence is the only colour on the page. No serif anywhere, because every med-spa on earth uses one. Picking treatments totals the price and the visits it really takes.</p>
+        <span class="sys">
+          <span class="swatch"><i style="background:#00181B"></i>Abyss</span>
+          <span class="swatch"><i style="background:#27DED6"></i>Nacre</span>
+          <span class="swatch">Anybody / Hanken Grotesk</span>
+        </span>
+      </span>
+    </a>
+
+    <a class="card rv" href="datum/" data-sector="trades">
+      <span class="shot">
+        <img src="datum/preview.jpg" width="1920" height="1200" loading="eager"
+             alt="Datum landing page: a rebar cage duotoned into ultramarine, headed 'Quantities on the bid. Not after it.'">
+        <span class="open">Open build →</span>
+      </span>
+      <span class="card-in">
+        <h2>Datum</h2>
+        <span class="trade">Excavation &amp; site work</span>
+        <p>Premium design on a trade that never gets it. Chalk-line blue rather than safety orange, setting-out lines that snap in on load, and an estimator that turns length, width and depth into loose yards and truck loads.</p>
+        <span class="sys">
+          <span class="swatch"><i style="background:#1735BF"></i>Chalk line</span>
+          <span class="swatch"><i style="background:#D3D6DA"></i>Concrete</span>
+          <span class="swatch">Bricolage Grotesque / Martian Mono</span>
+        </span>
+      </span>
+    </a>
+
+    <a class="card rv" href="marrow/" data-sector="food">
+      <span class="shot">
+        <img src="marrow/preview.jpg" width="1920" height="1200" loading="eager"
+             alt="Marrow landing page: flame and smoke bleeding into ember red, headed 'Everything here has been on fire.'">
+        <span class="open">Open build →</span>
+      </span>
+      <span class="card-in">
+        <h2>Marrow</h2>
+        <span class="trade">Live-fire restaurant</span>
+        <p>Drenched ember, not the charcoal-and-amber every steakhouse already has. Headlines scramble into place, embers drift on canvas, and the hearth you can switch on is synthesised in Web Audio rather than loaded as a file.</p>
+        <span class="sys">
+          <span class="swatch"><i style="background:#A01B00"></i>Ember</span>
+          <span class="swatch"><i style="background:#FF9B24"></i>Flame</span>
+          <span class="swatch">Big Shoulders / Manrope</span>
+        </span>
+      </span>
+    </a>
+
     <a class="card rv" href="clinic/" data-sector="health">
       <span class="shot">
-        <img src="clinic/preview.jpg" width="1600" height="1000" loading="eager"
+        <img src="clinic/preview.jpg" width="1600" height="1000" loading="lazy"
              alt="Wren Street landing page: a violet micrograph above the line 'Bloods before opinions.'">
         <span class="open">Open build →</span>
       </span>

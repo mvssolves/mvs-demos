@@ -16,6 +16,20 @@ Static. No framework, no build step, no dependencies.
 
 ## The builds
 
+### Round two — US market, saturated colour
+
+Built after round one was judged too quiet, too samey and too lightly animated.
+The brief and the reasoning are in `BRIEF-round-2.md`; project context is in
+`PRODUCT.md`.
+
+| | Build | Sector | System |
+|---|---|---|---|
+| 04 | **Oyster** | Skin studio, Newport Beach | Abyss `#00181B` drenched, nacre `#27DED6`. Anybody / Hanken Grotesk — no serif, no mono. A WebGL thin-film shader over the hero. Airy to near-empty. |
+| 05 | **Datum** | Excavation, Inland Empire | Chalk-line ultramarine `#1735BF` carrying half the surface, concrete `#D3D6DA`. Bricolage Grotesque / Martian Mono. Packed and gridded. |
+| 06 | **Marrow** | Live-fire restaurant, LA | Ember `#A01B00` drenched, flame `#FF9B24`. Big Shoulders / Manrope. Violent contrast — empty, then dense, then empty. |
+
+### Round one — British, restrained
+
 | | Build | Sector | System |
 |---|---|---|---|
 | 01 | **Wren Street** | Private clinic | Paper `#F6F4F0` + iodine violet `#4B3A6B`. Instrument Serif / Karla. The capsule is the recurring container shape; abstract micrographs replace stock medical photography. |
@@ -26,12 +40,36 @@ Static. No framework, no build step, no dependencies.
 
 Traced to entries in `04 Web Projects/inspiration.md`, not invented:
 
+- **Oyster** — sakazuki (macro material as the entire palette), ABL (abstract
+  macro displacing stock medical), sen (background matched to the product's own)
+- **Datum** — CURA (hard colour split, object crossing the seam), AGENTURA
+  (geometric overlay as the whole design), Longbow (crosshairs as engineering)
+- **Marrow** — IZANAMI (panel transitions, scramble reveal, sound toggle),
+  sakazuki (macro as hero), INDIGO (audio behind an explicit toggle)
 - **Wren Street** — ABL (abstract macro instead of stock medical), Medico
   (packaging form used as the UI shape), La Caminera (CTA segmented by visitor type)
 - **Blacksmith Row** — XNRGY (peak action doing motion's job), Fashora (subject
   against huge type), CINETIK (one accent, used identically everywhere)
 - **Ridley & Vaux** — Direct Lending (figures as credibility), AGENTURA
   (portrait-free restraint), PRØDUX (image and philosophy making the same argument)
+
+## What round two changed, and why
+
+Round one was run through `impeccable`, whose brand register rejected three
+choices outright before a line of CSS was written:
+
+- **Fraunces, Space Grotesk, Space Mono** — on the reflex-reject list. Training
+  defaults that produce monoculture.
+- **Editorial-typographic** — display serif, small mono labels, ruled separators,
+  monochrome restraint. Named as a saturated aesthetic lane, and an exact
+  description of all three round-one builds.
+- **Oyster shell / nacre / warm bone** — the cream-sand-beige body background
+  under a nicer name, flagged as the saturated default of 2026.
+
+The structural fix was **density, not palette**. Round one was uniformly airy,
+which is why three different colour schemes still read as one hand. Round two
+assigns each build an opposed density and holds it, and every build commits to
+saturated colour instead of neutral-plus-one-accent.
 
 ## Shared discipline (not shared design)
 
@@ -51,6 +89,9 @@ Each build got one interaction its own data needed — not motion for decoration
 
 | Build | Interaction |
 |---|---|
+| Oyster | Selecting treatments totals the price *and* says how many visits it actually takes, rather than implying one afternoon |
+| Datum | An estimator that runs a real takeoff — length × width × depth, swell factor by soil type, end-dump loads, working days |
+| Marrow | A hearth synthesised in Web Audio: filtered brown noise plus scheduled decaying crackles. Off by default, behind a labelled toggle |
 | Wren Street | Booking writes back a live summary (slot, reason, the visit length that reason implies) and validates properly |
 | Blacksmith Row | The 18-session timetable filters by day, with a live count |
 | Ridley & Vaux | The members index filters to silks or juniors — 3 + 8 = 11, matching the hero |
