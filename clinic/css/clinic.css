@@ -162,9 +162,17 @@ section{padding-block:var(--s6)}
 /* ---------- team ---------- */
 .people{margin-top:var(--s5); display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
   gap:var(--s4) var(--s3)}
-.person .frame{border-radius:var(--lozenge); aspect-ratio:4/5; overflow:hidden;
-  position:relative; background:var(--paper-2); display:block}
-.person .frame img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+/* A drawn placeholder, not a borrowed photograph. Real portraits get shot; a
+   stock face standing in for a named clinician is a lie the page does not need. */
+.avatar{position:relative; display:grid; place-items:center; aspect-ratio:4/5;
+  border-radius:var(--lozenge); background:var(--paper-2);
+  border:1px solid var(--hair-2); overflow:hidden}
+.avatar::before{content:''; position:absolute; inset:0;
+  background:radial-gradient(80% 60% at 50% 35%, rgba(75,58,107,.10), transparent 70%)}
+.avatar .ini{position:relative; font-family:var(--display); font-size:clamp(2.6rem,6vw,4rem);
+  line-height:1; color:var(--iodine); letter-spacing:.02em}
+.avatar-note{position:absolute; bottom:1.1rem; font-size:.56rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--ink-3)}
 .person h3{margin-top:var(--s2); font-size:1.25rem}
 .person .role{margin-top:.25rem; font-size:.72rem; letter-spacing:.14em;
   text-transform:uppercase; color:var(--ink-3)}
@@ -283,3 +291,37 @@ body.nav-up nav{transform:translateY(-105%)}
   padding:.7rem 1rem; font-size:.8rem; text-decoration:none;
   background:#111; color:#fff; transition:transform .25s ease}
 .skip:focus,.skip:focus-visible{transform:none}
+
+
+/* ============================================================
+   Motion layer 3 — masked line reveals, group stagger,
+   scroll progress, and (where there is one) a mobile action bar.
+   ============================================================ */
+
+#progress{position:fixed; top:0; left:0; height:2px; width:100%; z-index:150;
+  background:var(--iodine); transform:scaleX(0); transform-origin:left; pointer-events:none}
+
+/* headline lines rise out of their own mask */
+.ln{display:block; overflow:hidden}
+.ln > span{display:block; will-change:transform}
+@media (prefers-reduced-motion: no-preference){
+  .js .ln > span{transition:transform 1s var(--ease)}
+  .js .ln.pre > span{transform:translateY(105%)}
+}
+
+/* children of a group arrive in sequence rather than all at once */
+@media (prefers-reduced-motion: no-preference){
+  .js [data-stagger] > *{transition:opacity .8s var(--ease), transform .8s var(--ease)}
+  .js [data-stagger].pre > *{opacity:0; transform:translateY(14px)}
+}
+
+/* mobile action bar — the primary action should never be more than a thumb away */
+#actionbar{position:fixed; left:0; right:0; bottom:0; z-index:110; display:none;
+  align-items:center; gap:1rem;
+  padding:.7rem var(--pad) calc(.7rem + env(safe-area-inset-bottom));
+  background:rgba(246,244,240,.94); backdrop-filter:blur(10px); border-top:1px solid var(--hair);
+  transform:translateY(115%); transition:transform .5s var(--ease)}
+#actionbar.up{transform:none}
+#actionbar .note{font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; opacity:.65}
+#actionbar > *:last-child{margin-left:auto}
+@media(max-width:880px){#actionbar{display:flex} body{padding-bottom:4.75rem}}

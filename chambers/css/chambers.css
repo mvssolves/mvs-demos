@@ -278,3 +278,26 @@ body.nav-up nav{transform:translateY(-105%)}
   padding:.7rem 1rem; font-size:.8rem; text-decoration:none;
   background:#111; color:#fff; transition:transform .25s ease}
 .skip:focus,.skip:focus-visible{transform:none}
+
+
+/* ============================================================
+   Motion layer 3 — masked line reveals, group stagger,
+   scroll progress, and (where there is one) a mobile action bar.
+   ============================================================ */
+
+#progress{position:fixed; top:0; left:0; height:2px; width:100%; z-index:150;
+  background:var(--oxblood); transform:scaleX(0); transform-origin:left; pointer-events:none}
+
+/* headline lines rise out of their own mask */
+.ln{display:block; overflow:hidden}
+.ln > span{display:block; will-change:transform}
+@media (prefers-reduced-motion: no-preference){
+  .js .ln > span{transition:transform 1s var(--ease)}
+  .js .ln.pre > span{transform:translateY(105%)}
+}
+
+/* children of a group arrive in sequence rather than all at once */
+@media (prefers-reduced-motion: no-preference){
+  .js [data-stagger] > *{transition:opacity .8s var(--ease), transform .8s var(--ease)}
+  .js [data-stagger].pre > *{opacity:0; transform:translateY(14px)}
+}

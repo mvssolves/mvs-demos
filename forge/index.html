@@ -20,10 +20,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/hero.jpg" fetchpriority="high">
-<link rel="stylesheet" href="css/forge.css?v=202608022013">
+<link rel="stylesheet" href="css/forge.css?v=20260802204018">
 </head>
 <body>
 
+<div id="progress" aria-hidden="true"></div>
 <a class="skip" href="#top">Skip to content</a>
 
 <nav>
@@ -65,7 +66,7 @@
   <div class="hero-in wrap">
     <span class="k k--hot">Hackney Wick · 05:30–21:00</span>
     <h1 class="mt-3">Heavy things,<br><span class="out">done properly.</span></h1>
-    <p class="lede mt-3">A barbell gym with coaches on the floor and six people to a session. No machines, no mirrors down one wall, no twelve-month contract.</p>
+    <p class="lede mt-3">Coached barbell training, six to a session, on a floor where somebody is always watching your set. No machines, no mirror wall, no twelve-month contract to get out of.</p>
 
     <div class="hero-cta">
       <a class="btn" href="#trial">Book a free session</a>
@@ -127,7 +128,7 @@
     </tbody>
   </table>
 
-  <div class="stats mt-5 rv">
+  <div class="stats mt-5 rv" data-stagger>
     <div class="stat"><b>6</b><span class="k">Lifters per session</span></div>
     <div class="stat"><b>4</b><span class="k">Coaches on staff</span></div>
     <div class="stat"><b>18</b><span class="k">Sessions a week</span></div>
@@ -163,7 +164,7 @@
     </figure>
   </div>
 
-  <p class="lede rv mt-5">Two hundred square metres, eight platforms, and a coach who knows what you lifted last Tuesday. If you want a sauna and a smoothie bar, we are the wrong gym and will happily say so.</p>
+  <p class="lede rv mt-5">Two hundred square metres, eight platforms, and a coach who can tell you what you lifted last Tuesday without looking it up. If you want a sauna and a smoothie bar we are the wrong gym, and we will tell you that on the phone rather than after you have joined.</p>
 </section>
 
 <!-- ══════════════════════════════════════════ coaches -->
@@ -176,34 +177,30 @@
     <span class="k rv">All on the floor, all week</span>
   </div>
 
-  <div class="coaches">
+  <div class="coaches" data-stagger>
     <article class="coach rv">
-      <figure class="plate r-45 wipe"><span class="frame"><img src="img/athlete.jpg" width="1000" height="1250" loading="lazy" decoding="async"
-        alt="Portrait of an athlete in low light, mid-breath between sets"></span></figure>
+      <span class="avatar" aria-hidden="true"><span class="ini">DN</span><span class="avatar-note">Portrait to follow</span></span>
       <h3>Dara Nwosu</h3>
       <p class="role">Head coach · Olympic lifting</p>
-      <p>Competed to national level, coached for eleven years. Runs the technique sessions and most of the 06:00s.</p>
+      <p>National level as a lifter, eleven years coaching since. Takes the technique sessions and most of the 06:00s, which tells you something about him.</p>
     </article>
     <article class="coach rv">
-      <figure class="plate r-45 wipe"><span class="frame"><img src="img/chalk.jpg" width="1400" height="1000" loading="lazy" decoding="async"
-        alt="Hands and chalk dust in backlight"></span></figure>
+      <span class="avatar" aria-hidden="true"><span class="ini">KA</span><span class="avatar-note">Portrait to follow</span></span>
       <h3>Kemi Adeyemi</h3>
       <p class="role">Strength · Rehab</p>
-      <p>Came from physiotherapy. Handles anyone returning from injury and writes the beginner progressions.</p>
+      <p>Came out of physiotherapy. Takes anyone coming back from injury, and wrote the beginner progressions the rest of us teach from.</p>
     </article>
     <article class="coach rv">
-      <figure class="plate r-45 wipe"><span class="frame"><img src="img/iron.jpg" width="1000" height="1250" loading="lazy" decoding="async"
-        alt="A loaded barbell plate in low light"></span></figure>
+      <span class="avatar" aria-hidden="true"><span class="ini">VM</span><span class="avatar-note">Portrait to follow</span></span>
       <h3>Vince Marchetti</h3>
       <p class="role">Conditioning</p>
-      <p>Ex-rowing. Runs the conditioning work and will make you hate the assault bike on a personal level.</p>
+      <p>Ex-rowing, which explains the conditioning work and the specific way it hurts.</p>
     </article>
     <article class="coach rv">
-      <figure class="plate r-45 wipe"><span class="frame"><img src="img/room.jpg" width="1600" height="900" loading="lazy" decoding="async"
-        alt="A rack of dumbbells along a dark gym wall"></span></figure>
+      <span class="avatar" aria-hidden="true"><span class="ini">AS</span><span class="avatar-note">Portrait to follow</span></span>
       <h3>Ade Salako</h3>
       <p class="role">Strength · Beginners</p>
-      <p>Teaches every intro session. If you have never held a barbell, you will meet Ade before anyone else.</p>
+      <p>Takes every intro session. If you have never held a barbell, Ade is the first person you meet here.</p>
     </article>
   </div>
 </section>
@@ -218,22 +215,22 @@
     <span class="k rv">Rolling monthly · cancel any time</span>
   </div>
 
-  <div class="plans">
+  <div class="plans" data-stagger>
     <article class="plan rv">
       <h3>Off-peak</h3>
-      <p>Any session between 10:00 and 16:00, weekdays. Same coaching, quieter room.</p>
+      <p>Weekdays between 10:00 and 16:00. Same coaches, same programming, considerably quieter room.</p>
       <span class="price">£72<span class="k">per month</span></span>
       <a class="btn btn--ghost" href="#trial">Choose</a>
     </article>
     <article class="plan rv">
       <h3>Full</h3>
-      <p>Every session on the timetable, plus open floor on Saturdays.</p>
+      <p>Anything on the timetable, plus the Saturday open floor.</p>
       <span class="price">£118<span class="k">per month</span></span>
       <a class="btn btn--ghost" href="#trial">Choose</a>
     </article>
     <article class="plan rv">
       <h3>One to one</h3>
-      <p>Four private sessions a month with the same coach, plus full membership.</p>
+      <p>Four private sessions a month with the same coach throughout, plus full membership.</p>
       <span class="price">£310<span class="k">per month</span></span>
       <a class="btn btn--ghost" href="#trial">Choose</a>
     </article>
@@ -251,7 +248,7 @@
     <span class="k rv">Roughly 70 minutes</span>
   </div>
 
-  <div class="plans">
+  <div class="plans" data-stagger>
     <article class="plan rv">
       <h3>You arrive</h3>
       <p>Ade meets you at the door. No tour, no clipboard, no sales desk in the corner.</p>
@@ -278,7 +275,7 @@
     </article>
   </div>
 
-  <p class="lede rv mt-5">Nobody will follow up more than once. If it is not for you, that is a perfectly good outcome and we would rather find out on day one than in month three.</p>
+  <p class="lede rv mt-5">One follow-up, then nothing. If it is not for you that is a fine outcome, and better established on day one than in month three when you have stopped coming but kept paying.</p>
 </section>
 
 <!-- ══════════════════════════════════════════ trial -->
@@ -321,6 +318,11 @@
   </div>
 </footer>
 
-<script src="js/forge.js?v=202608022013"></script>
+<div id="actionbar">
+  <span class="note">Free · no card taken</span>
+  <a class="btn" href="#trial">Book a free session</a>
+</div>
+
+<script src="js/forge.js?v=20260802204018"></script>
 </body>
 </html>

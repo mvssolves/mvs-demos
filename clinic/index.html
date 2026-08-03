@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@400;500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/hero.jpg" fetchpriority="high">
-<link rel="stylesheet" href="css/clinic.css?v=202608022013">
+<link rel="stylesheet" href="css/clinic.css?v=20260802204018">
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"MedicalClinic","name":"Wren Street",
@@ -30,6 +30,7 @@
 </head>
 <body>
 
+<div id="progress" aria-hidden="true"></div>
 <a class="skip" href="#top">Skip to content</a>
 
 <nav>
@@ -68,7 +69,7 @@
     <div>
       <span class="k rv">Marylebone · Est. 2016</span>
       <h1 class="rv mt-3">Bloods before<br><em>opinions.</em></h1>
-      <p class="lede rv mt-3">A small practice for perimenopause, hormone health and long-term prevention. First consultations run ninety minutes because fifteen was never enough.</p>
+      <p class="lede rv mt-3">Perimenopause, hormone health and the long slow business of prevention. First appointments run ninety minutes — the length it takes to hear a fifteen-year history once, properly.</p>
 
       <div class="hero-cta rv">
         <a class="pill" href="#book">Book a first consultation</a>
@@ -97,25 +98,25 @@
     <h2 class="rv">Four things, <em>properly</em>.</h2>
   </div>
 
-  <div class="care">
+  <div class="care" data-stagger>
     <article class="care-row rv">
       <h3>Perimenopause &amp; menopause</h3>
-      <p>Symptom history, full hormone panel, and a treatment plan you leave with on the day — not after a second appointment.</p>
+      <p>A full symptom history, a full panel, and the plan written before you leave. Not “come back when the bloods are in”.</p>
       <span class="care-when">90 min</span>
     </article>
     <article class="care-row rv">
       <h3>Thyroid &amp; adrenal</h3>
-      <p>Full panels rather than TSH alone. We will say plainly when your numbers are normal and the problem is somewhere else.</p>
+      <p>Full panels, not TSH on its own. And if the numbers are genuinely normal, we will say so and start looking elsewhere rather than treating the chart.</p>
       <span class="care-when">60 min</span>
     </article>
     <article class="care-row rv">
       <h3>Bone &amp; cardiovascular risk</h3>
-      <p>DEXA, lipids and blood pressure read together, with the ten-year picture drawn out rather than filed.</p>
+      <p>DEXA, lipids and pressure read together, once, by one person — with the ten-year line drawn on the page rather than left in the file.</p>
       <span class="care-when">60 min</span>
     </article>
     <article class="care-row rv">
       <h3>Annual review</h3>
-      <p>One appointment a year that actually reads last year's notes. Adjustments made, or nothing changed and told why.</p>
+      <p>One appointment a year that has read last year's. Doses adjusted, or deliberately left alone and you told which.</p>
       <span class="care-when">45 min</span>
     </article>
   </div>
@@ -144,17 +145,17 @@
       <span class="k rv">02 — How it works</span>
       <h2 class="rv">No triage by <em>receptionist</em>.</h2>
     </div>
-    <p class="lede rv mt-3">Every first appointment follows the same four steps, in the same order, whoever you see.</p>
+    <p class="lede rv mt-3">The same four steps, the same order, whichever clinician you see. Consistency is the point of a protocol.</p>
 
-    <div class="steps">
+    <div class="steps" data-stagger>
       <div class="step rv"><span class="n">01</span><h3>Bloods first</h3>
-        <p>Taken and processed before you are seen, so the consultation starts with numbers rather than guesses.</p></div>
+        <p>Drawn and run before you are seen, so the appointment opens on results instead of speculation.</p></div>
       <div class="step rv"><span class="n">02</span><h3>Ninety minutes</h3>
-        <p>History, examination and the results together. Long enough to hear the whole thing once.</p></div>
+        <p>History, examination and results in one sitting. Long enough that you are not editing yourself for time.</p></div>
       <div class="step rv"><span class="n">03</span><h3>Written plan</h3>
-        <p>You leave with the plan in writing, including what we are not doing and why.</p></div>
+        <p>The plan in writing before you leave — including what we have decided against, and why.</p></div>
       <div class="step rv"><span class="n">04</span><h3>Six-week check</h3>
-        <p>A short review to adjust doses. Included — it is part of the treatment, not a second sale.</p></div>
+        <p>A short review to get the dose right. Included, because starting a treatment and not checking it is not treatment.</p></div>
     </div>
 
     <a class="pill pill--on-violet rv mt-5" href="#book">Book a first consultation</a>
@@ -167,7 +168,7 @@
     <span class="k rv">03 — Evidence</span>
     <h2 class="rv">What we can <em>show</em> you.</h2>
   </div>
-  <p class="lede rv mt-3">We publish our own numbers. Where the evidence is thin, we say so instead of selling around it.</p>
+  <p class="lede rv mt-3">Our own figures, not a survey we commissioned. Where the evidence is genuinely thin — and in this field it often is — we say so rather than selling around the gap.</p>
 
   <div class="figs">
     <div class="fig rv"><p>Patients seen since 2016</p><b>4 100</b></div>
@@ -190,45 +191,39 @@
     <h2 class="rv">Six people. You see the <em>same one</em>.</h2>
   </div>
 
-  <div class="people">
+  <div class="people" data-stagger>
     <article class="person rv">
-      <span class="frame"><img src="img/detail.jpg" width="1600" height="900" loading="lazy" decoding="async"
-        alt="Folded natural linen, photographed close in flat daylight"></span>
+      <span class="avatar" aria-hidden="true"><span class="ini">IO</span><span class="avatar-note">Portrait to follow</span></span>
       <h3>Dr Ines Okafor</h3>
       <p class="role">Endocrinology · Clinical lead</p>
       <p>Fourteen years in NHS endocrinology before founding the practice. Sees the complex thyroid work.</p>
     </article>
     <article class="person rv">
-      <span class="frame"><img src="img/space.jpg" width="1400" height="1000" loading="lazy" decoding="async"
-        alt="Daylight falling across a quiet clinical room"></span>
+      <span class="avatar" aria-hidden="true"><span class="ini">ML</span><span class="avatar-note">Portrait to follow</span></span>
       <h3>Dr Marta Lindqvist</h3>
       <p class="role">Menopause medicine</p>
       <p>Runs the perimenopause clinic. Writes the practice's prescribing guidance and keeps it public.</p>
     </article>
     <article class="person rv">
-      <span class="frame"><img src="img/lab.jpg" width="1000" height="1250" loading="lazy" decoding="async"
-        alt="Sample wells in a tray, shallow focus"></span>
+      <span class="avatar" aria-hidden="true"><span class="ini">RM</span><span class="avatar-note">Portrait to follow</span></span>
       <h3>Ravi Menon</h3>
       <p class="role">Biomedical scientist</p>
       <p>Runs the on-site lab. Every panel is processed here, which is why results arrive before the appointment.</p>
     </article>
     <article class="person rv">
-      <span class="frame"><img src="img/water.jpg" width="1800" height="1000" loading="lazy" decoding="async"
-        alt="Macrograph of cell-like structures in blue"></span>
+      <span class="avatar" aria-hidden="true"><span class="ini">PR</span><span class="avatar-note">Portrait to follow</span></span>
       <h3>Dr Priya Raval</h3>
       <p class="role">Bone health · Metabolic</p>
       <p>Runs the DEXA clinic and the cardiovascular risk reviews. Publishes the practice's prescribing audit.</p>
     </article>
     <article class="person rv">
-      <span class="frame"><img src="img/hero.jpg" width="2000" height="1200" loading="lazy" decoding="async"
-        alt="Violet micrograph of cellular tissue"></span>
+      <span class="avatar" aria-hidden="true"><span class="ini">SA</span><span class="avatar-note">Portrait to follow</span></span>
       <h3>Dr Sofia Almeida</h3>
       <p class="role">Menopause medicine</p>
       <p>Second menopause clinic, Thursdays and Fridays. Trained in Lisbon and at the Royal Free.</p>
     </article>
     <article class="person rv">
-      <span class="frame"><img src="img/detail.jpg" width="1600" height="900" loading="lazy" decoding="async"
-        alt="Folded natural linen in flat daylight"></span>
+      <span class="avatar" aria-hidden="true"><span class="ini">NC</span><span class="avatar-note">Portrait to follow</span></span>
       <h3>Nadine Cole</h3>
       <p class="role">Practice nurse · Phlebotomy</p>
       <p>Takes most of the bloods and runs the six-week reviews. Usually the person who calls you back.</p>
@@ -309,6 +304,11 @@
   </div>
 </footer>
 
-<script src="js/clinic.js?v=202608022013"></script>
+<div id="actionbar" aria-hidden="false">
+  <span class="note">90 min first visit · £320</span>
+  <a class="pill" href="#book">Book a consultation</a>
+</div>
+
+<script src="js/clinic.js?v=20260802204018"></script>
 </body>
 </html>
