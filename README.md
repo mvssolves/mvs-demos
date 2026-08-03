@@ -16,6 +16,40 @@ Static. No framework, no build step, no dependencies.
 
 ## The builds
 
+> **Live at https://mvssolves.com/demos** — that is the canonical URL now.
+> The `mvssolves.github.io/mvs-demos` copy stays up as a mirror and every page
+> carries a `rel="canonical"` pointing at the real one. The published copy lives
+> in the `mvssolves.com` repo under `demos/`; keep them identical with:
+>
+> ```bash
+> rsync -a --delete --exclude='.git' --exclude='*.md' mvs-demos/ mvssolves.com/demos/
+> ```
+
+### Round three — riskier, one deliberate gamble each
+
+| | Build | Sector | System |
+|---|---|---|---|
+| 07 | **Micron** | Paint correction, Costa Mesa | Graphite `#14171B` with acid lime `#AFE955` carrying two whole sections. Familjen Grotesk / Spline Sans Mono. Measured density. |
+| 08 | **Icehouse** | 28 lofts, DTLA | Cold slate `#334551` — the only mid-tone ground in the library — with brass `#E0AE5D`. Young Serif / Rethink Sans. Cinematic. |
+| 09 | **Dispatch** | Heating, air & electrical | Utility green `#014529` with hi-vis `#FF8D00`. Saira / Sometype Mono. Dense and board-like. |
+
+**The gamble in each:**
+
+- **Micron** refuses the category reflex. No black-and-red, no carbon fibre — it
+  reads like a conservation lab. The hero carries an interactive defect map: 326
+  marks generated from a seeded PRNG (identical every load, because a map that
+  reshuffled would be admitting it was decoration), filterable by defect type,
+  revealed by an inspection-lamp toggle.
+- **Icehouse** rides the building. Six floors, one per screen, with drawn plans
+  and a lift car climbing a shaft indicator. It is scroll-**driven**, never
+  hijacked: nothing calls `preventDefault`, the scrollbar never lies, and a fast
+  flick still carries you past. Below 1000px and under reduced motion it is a
+  plain list.
+- **Dispatch** refuses to be a marketing page at all. No hero image, no trust
+  headline — the board is the hero. It reads the visitor's own clock for the
+  real next slot, trucks out and whether the after-hours rate applies, and every
+  rate is published, which nobody in the trade does.
+
 ### Round two — US market, saturated colour
 
 Built after round one was judged too quiet, too samey and too lightly animated.
@@ -89,6 +123,9 @@ Each build got one interaction its own data needed — not motion for decoration
 
 | Build | Interaction |
 |---|---|
+| Micron | An inspection lamp that reveals a generated defect map over the hero, filterable by defect type |
+| Icehouse | Scroll rides six floors of the building, each with its own drawn plan, price and remaining count |
+| Dispatch | A board computed from the visitor's clock: next slot, trucks out, and the fee that actually applies right now |
 | Oyster | Selecting treatments totals the price *and* says how many visits it actually takes, rather than implying one afternoon |
 | Datum | An estimator that runs a real takeoff — length × width × depth, swell factor by soil type, end-dump loads, working days |
 | Marrow | A hearth synthesised in Web Audio: filtered brown noise plus scheduled decaying crackles. Off by default, behind a labelled toggle |

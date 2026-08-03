@@ -119,6 +119,7 @@ footer{border-top:1px solid var(--hair); padding-block:2.5rem}
 }
 @media (prefers-reduced-motion: reduce){*{transition-duration:.01ms !important}}
 </style>
+<link rel="canonical" href="https://mvssolves.com/demos/">
 </head>
 <body>
 
@@ -142,20 +143,76 @@ footer{border-top:1px solid var(--hair); padding-block:2.5rem}
   <div class="filters" role="group" aria-label="Filter by sector">
     <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
     <button class="chip" type="button" data-f="health" aria-pressed="false">Health</button>
-    <button class="chip" type="button" data-f="trades" aria-pressed="false">Trades</button>
+    <button class="chip" type="button" data-f="trades" aria-pressed="false">Home &amp; trades</button>
+    <button class="chip" type="button" data-f="auto" aria-pressed="false">Auto</button>
+    <button class="chip" type="button" data-f="property" aria-pressed="false">Property</button>
     <button class="chip" type="button" data-f="food" aria-pressed="false">Food</button>
     <button class="chip" type="button" data-f="sport" aria-pressed="false">Sport</button>
     <button class="chip" type="button" data-f="professional" aria-pressed="false">Professional</button>
-    <span class="count" id="count" aria-live="polite">6 builds</span>
+    <span class="count" id="count" aria-live="polite">9 builds</span>
   </div>
 </div>
 
 <main class="wrap" id="library">
   <div class="grid">
 
+    <a class="card rv" href="micron/" data-sector="auto">
+      <span class="shot">
+        <img src="micron/preview.jpg" width="1920" height="1200" loading="eager"
+             alt="Micron landing page: a dark macro car panel headed 'Your clear coat is about 45 microns. You get one shot.'">
+        <span class="open">Open build →</span>
+      </span>
+      <span class="card-in">
+        <h2>Micron</h2>
+        <span class="trade">Paint correction</span>
+        <p>No black-and-red tuner clichés — it reads like a conservation lab, because irreversible material removal is what the work actually is. Switch on the inspection light and 326 generated defect marks appear over the hero: swirls, deep scratches, etching and somebody else's buffer trails, each filterable.</p>
+        <span class="sys">
+          <span class="swatch"><i style="background:#14171B"></i>Graphite</span>
+          <span class="swatch"><i style="background:#AFE955"></i>Acid lime</span>
+          <span class="swatch">Familjen Grotesk / Spline Sans Mono</span>
+        </span>
+      </span>
+    </a>
+
+    <a class="card rv" href="icehouse/" data-sector="property">
+      <span class="shot">
+        <img src="icehouse/preview.jpg" width="1920" height="1200" loading="eager"
+             alt="Icehouse landing page: sun crossing a brick industrial hall, headed 'Twenty-eight lofts in a building that used to make ice.'">
+        <span class="open">Open build →</span>
+      </span>
+      <span class="card-in">
+        <h2>Icehouse</h2>
+        <span class="trade">28 lofts, a 1924 cold-storage plant</span>
+        <p>The only mid-tone ground in the library — every other build sits at one end or the other. Scroll rides the building floor by floor, six drawn plans and a lift car that climbs the shaft with you. Scroll-driven, never scroll-hijacked: the scrollbar always tells the truth and a fast flick still gets you past.</p>
+        <span class="sys">
+          <span class="swatch"><i style="background:#334551"></i>Cold slate</span>
+          <span class="swatch"><i style="background:#E0AE5D"></i>Brass</span>
+          <span class="swatch">Young Serif / Rethink Sans</span>
+        </span>
+      </span>
+    </a>
+
+    <a class="card rv" href="dispatch/" data-sector="trades">
+      <span class="shot">
+        <img src="dispatch/preview.jpg" width="1920" height="1200" loading="eager"
+             alt="Dispatch landing page: a green status board showing next available slot, trucks out, the time and the call-out fee.">
+        <span class="open">Open build →</span>
+      </span>
+      <span class="card-in">
+        <h2>Dispatch</h2>
+        <span class="trade">Heating, air &amp; electrical</span>
+        <p>Nobody wants a premium experience from an electrician at 6am with no heat — so this refuses to be a marketing page. The board is the hero: no photo, no trust headline. It reads your clock for the real next slot, trucks out and whether the after-hours rate applies. Every rate published, which the trade never does.</p>
+        <span class="sys">
+          <span class="swatch"><i style="background:#014529"></i>Utility green</span>
+          <span class="swatch"><i style="background:#FF8D00"></i>Hi-vis</span>
+          <span class="swatch">Saira / Sometype Mono</span>
+        </span>
+      </span>
+    </a>
+
     <a class="card rv" href="oyster/" data-sector="health">
       <span class="shot">
-        <img src="oyster/preview.jpg" width="1920" height="1200" loading="eager"
+        <img src="oyster/preview.jpg" width="1920" height="1200" loading="lazy"
              alt="Oyster landing page: iridescent film over near-black, headed 'Skin is an organ. We treat it like one.'">
         <span class="open">Open build →</span>
       </span>
