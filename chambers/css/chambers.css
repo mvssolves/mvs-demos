@@ -123,6 +123,17 @@ section{padding-block:var(--s6)}
   font-variant-numeric:tabular-nums; white-space:nowrap}
 
 /* ---------- people: an index, not headshots ---------- */
+.filters{display:flex; flex-wrap:wrap; gap:.4rem; align-items:center; margin-bottom:var(--s3)}
+.chip{font-family:var(--mono); font-size:.64rem; letter-spacing:.14em; text-transform:uppercase;
+  background:none; color:var(--ink-2); border:1px solid var(--hair); padding:.5rem .9rem;
+  cursor:pointer; transition:background-color .5s var(--ease), color .5s var(--ease),
+  border-color .5s var(--ease)}
+.chip:hover{border-color:var(--oxblood); color:var(--oxblood)}
+.chip[aria-pressed="true"]{background:var(--oxblood); border-color:var(--oxblood); color:var(--shell)}
+.chip-count{font-family:var(--mono); font-size:.62rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-3); margin-left:auto}
+.person[hidden]{display:none}
+@media(max-width:600px){.chip-count{margin-left:0; width:100%; padding-top:.4rem}}
 .people{border-top:1px solid var(--hair)}
 .person{display:grid; grid-template-columns:minmax(0,1fr) 7rem 8rem;
   gap:var(--s1) var(--s3); align-items:baseline; padding-block:var(--s3);

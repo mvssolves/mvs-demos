@@ -81,7 +81,19 @@
     <span class="k rv">Mon 3 – Sat 8 Feb</span>
   </div>
 
-  <table class="table rv">
+  <div class="filters rv" role="group" aria-label="Filter by day">
+    <button class="chip" type="button" data-day="all" aria-pressed="true">All week</button>
+    <button class="chip" type="button" data-day="Mon" aria-pressed="false">Mon</button>
+    <button class="chip" type="button" data-day="Tue" aria-pressed="false">Tue</button>
+    <button class="chip" type="button" data-day="Wed" aria-pressed="false">Wed</button>
+    <button class="chip" type="button" data-day="Thu" aria-pressed="false">Thu</button>
+    <button class="chip" type="button" data-day="Fri" aria-pressed="false">Fri</button>
+    <button class="chip" type="button" data-day="Sat" aria-pressed="false">Sat</button>
+    <button class="chip" type="button" data-day="Sun" aria-pressed="false">Sun</button>
+    <span class="chip-count" id="chipcount" aria-live="polite">18 sessions</span>
+  </div>
+
+  <table class="table rv" id="timetableTable">
     <thead><tr><th>Time</th><th>Session</th><th>Coach</th><th>Spaces</th></tr></thead>
     <tbody>
       <tr><td class="t-time">Mon 06:00</td><td class="t-name">Strength — Squat</td><td class="t-coach">Dara</td><td class="t-left hot">2 left</td></tr>

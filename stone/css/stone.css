@@ -201,6 +201,14 @@ section{padding-block:var(--s6)}
 .ground .lede{color:var(--onblue)}
 
 /* ---------- index table ---------- */
+.units{display:flex; align-items:center; gap:.4rem; margin-bottom:var(--s2)}
+.units .tag{margin-right:auto}
+.unit{font-family:var(--mono); font-size:.62rem; letter-spacing:.12em; background:none;
+  color:var(--ink-2); border:1px solid var(--hair); padding:.4rem .7rem; cursor:pointer;
+  transition:background-color var(--step) var(--cut), color var(--step) var(--cut),
+  border-color var(--step) var(--cut)}
+.unit:hover{border-color:var(--cobalt); color:var(--cobalt)}
+.unit[aria-pressed="true"]{background:var(--cobalt); border-color:var(--cobalt); color:var(--chalk)}
 .index{width:100%; border-collapse:collapse}
 .index th{text-align:left; font-family:var(--mono); font-weight:400; font-size:.6rem;
   letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3);

@@ -88,16 +88,21 @@
   <div class="two">
     <div class="stack">
       <p class="rv">Stone is not a material you pick off a chart. Each bed cuts differently, weathers differently and takes a different arris. We will tell you when the one you have specified is wrong for the elevation it is going on.</p>
-      <table class="index rv">
+      <div class="units rv" role="group" aria-label="Density units">
+        <span class="tag">Density</span>
+        <button class="unit" type="button" data-u="si" aria-pressed="true">kg/m³</button>
+        <button class="unit" type="button" data-u="imp" aria-pressed="false">lb/ft³</button>
+      </div>
+      <table class="index rv" id="bedTable">
         <thead><tr><th>Bed</th><th>Character</th><th>Density</th></tr></thead>
         <tbody>
-          <tr><td>Guiting</td><td>Warm, shelly, takes a fine tooled finish</td><td>2 180</td></tr>
-          <tr><td>Farmington</td><td>Close-grained, holds a crisp arris</td><td>2 340</td></tr>
-          <tr><td>Temple Guiting</td><td>Pale and even, for long ashlar runs</td><td>2 210</td></tr>
-          <tr><td>Cotswold Hill</td><td>Hard, weathers slowly, exposed work</td><td>2 400</td></tr>
-          <tr><td>Bath Ground</td><td>Soft to carve, interior mouldings</td><td>2 060</td></tr>
-          <tr><td>Clipsham</td><td>Reliable, for conservation matching</td><td>2 290</td></tr>
-          <tr><td>Ancaster</td><td>Banded, for pieces meant to be read</td><td>2 270</td></tr>
+          <tr><td>Guiting</td><td>Warm, shelly, takes a fine tooled finish</td><td data-si="2180">2 180</td></tr>
+          <tr><td>Farmington</td><td>Close-grained, holds a crisp arris</td><td data-si="2340">2 340</td></tr>
+          <tr><td>Temple Guiting</td><td>Pale and even, for long ashlar runs</td><td data-si="2210">2 210</td></tr>
+          <tr><td>Cotswold Hill</td><td>Hard, weathers slowly, exposed work</td><td data-si="2400">2 400</td></tr>
+          <tr><td>Bath Ground</td><td>Soft to carve, interior mouldings</td><td data-si="2060">2 060</td></tr>
+          <tr><td>Clipsham</td><td>Reliable, for conservation matching</td><td data-si="2290">2 290</td></tr>
+          <tr><td>Ancaster</td><td>Banded, for pieces meant to be read</td><td data-si="2270">2 270</td></tr>
         </tbody>
       </table>
     </div>

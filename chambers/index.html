@@ -166,7 +166,14 @@
     <h2 class="rv">Eleven members,<br>listed by <em>call</em>.</h2>
   </div>
 
-  <div class="people">
+  <div class="filters rv" role="group" aria-label="Filter members">
+    <button class="chip" type="button" data-rank="all" aria-pressed="true">All</button>
+    <button class="chip" type="button" data-rank="silk" aria-pressed="false">Silks</button>
+    <button class="chip" type="button" data-rank="junior" aria-pressed="false">Juniors</button>
+    <span class="chip-count" id="chipcount" aria-live="polite">11 members</span>
+  </div>
+
+  <div class="people" id="peopleList">
     <article class="person rv">
       <div><h3>Helena Vaux KC</h3><p class="sub">Civil fraud, asset recovery, cross-border tracing</p></div>
       <span class="yr">Silk 2011</span><span class="cal">Called 1993</span>

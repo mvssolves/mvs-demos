@@ -21,6 +21,33 @@
   }, { rootMargin: '0px 0px -10% 0px' });
   rv.forEach(function (el) { io.observe(el); });
 
+  /* ------------------------------------- members index: silks / juniors */
+  (function () {
+    var chips = [].slice.call(document.querySelectorAll('.chip'));
+    var list = document.getElementById('peopleList');
+    var count = document.getElementById('chipcount');
+    if (!chips.length || !list) return;
+    var people = [].slice.call(list.querySelectorAll('.person'));
+
+    function apply(rank) {
+      var shown = 0;
+      people.forEach(function (el) {
+        var yr = el.querySelector('.yr').textContent.toLowerCase();
+        var isSilk = yr.indexOf('silk') > -1;
+        var hit = rank === 'all' || (rank === 'silk' ? isSilk : !isSilk);
+        el.hidden = !hit;
+        if (hit) shown++;
+      });
+      count.textContent = shown + (shown === 1 ? ' member' : ' members');
+    }
+    chips.forEach(function (b) {
+      b.addEventListener('click', function () {
+        chips.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+        apply(b.dataset.rank);
+      });
+    });
+  })();
+
   var form = document.getElementById('instructform');
   if (form) {
     form.addEventListener('submit', function (e) {

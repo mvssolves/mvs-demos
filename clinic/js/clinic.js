@@ -31,14 +31,42 @@
     });
   });
 
+  /* -------------------------------------------- live appointment summary */
+  // The visit length is a property of the reason, so the page should say it
+  // back rather than making someone cross-reference the table above.
+  var LENGTH = {
+    'Perimenopause & menopause': '90 minutes',
+    'Thyroid & adrenal': '60 minutes',
+    'Bone & cardiovascular risk': '60 minutes',
+    'Annual review': '45 minutes',
+    'Not sure yet': '90 minutes, booked long until we know'
+  };
+  var summary = document.getElementById('summary');
+  var reason = document.getElementById('rs');
+
+  function writeSummary() {
+    if (!summary) return;
+    var slot = document.querySelector('.slot[aria-pressed="true"]');
+    var why = reason ? reason.value : '';
+    if (!slot || !why) { summary.textContent = ''; return; }
+    summary.innerHTML = slot.textContent + ' — <em>' + why.toLowerCase() + '</em>, ' + (LENGTH[why] || '60 minutes') +
+      '. Bloods taken forty minutes before.';
+  }
+  slots.forEach(function (b) { b.addEventListener('click', writeSummary); });
+  if (reason) reason.addEventListener('change', writeSummary);
+  writeSummary();
+
   var form = document.getElementById('booking');
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var picked = document.querySelector('.slot[aria-pressed="true"]');
-      // Demo build — no endpoint behind this.
-      document.getElementById('state').textContent =
-        'Demo build — no endpoint wired' + (picked ? ' (' + picked.textContent + ')' : '') + '.';
+      var state = document.getElementById('state');
+      // real validation before the demo notice, so the form behaves honestly
+      var missing = [].slice.call(form.querySelectorAll('[required]')).filter(function (f) { return !f.value.trim(); });
+      var email = document.getElementById('em');
+      if (missing.length) { state.textContent = 'Add your name and email first.'; missing[0].focus(); return; }
+      if (email && email.value.indexOf('@') < 1) { state.textContent = 'That email does not look right.'; email.focus(); return; }
+      state.textContent = 'Demo build — no endpoint wired. Nothing was sent.';
     });
   }
 })();

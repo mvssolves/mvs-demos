@@ -102,6 +102,17 @@ section{padding-block:var(--s6)}
 @media(max-width:720px){.head{grid-template-columns:1fr; align-items:start}}
 
 /* ---------- timetable ---------- */
+.filters{display:flex; flex-wrap:wrap; gap:.4rem; align-items:center; margin-bottom:var(--s3)}
+.chip{font-family:var(--mono); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase;
+  background:none; color:var(--bone-2); border:1px solid var(--hair); padding:.5rem .85rem;
+  cursor:pointer; transition:background-color var(--fast) var(--snap), color var(--fast) var(--snap),
+  border-color var(--fast) var(--snap)}
+.chip:hover{color:var(--bone); border-color:var(--bone-3)}
+.chip[aria-pressed="true"]{background:var(--sulphur); border-color:var(--sulphur); color:var(--ink)}
+.chip-count{font-family:var(--mono); font-size:.64rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--bone-3); margin-left:auto}
+.table tr[hidden]{display:none}
+@media(max-width:700px){.chip-count{margin-left:0; width:100%; padding-top:.4rem}}
 .table{width:100%; border-collapse:collapse}
 .table th{text-align:left; font-family:var(--mono); font-weight:400; font-size:.62rem;
   letter-spacing:.16em; text-transform:uppercase; color:var(--bone-3);

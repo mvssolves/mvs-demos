@@ -56,6 +56,30 @@
     }, { passive: true });
   }
 
+  /* ------------------------------------- bed densities: kg/m3 or lb/ft3 */
+  // Architects here work in both. Converting in place beats a second table.
+  (function () {
+    var units = [].slice.call(document.querySelectorAll('.unit'));
+    var cells = [].slice.call(document.querySelectorAll('#bedTable td[data-si]'));
+    if (!units.length || !cells.length) return;
+    var head = document.querySelector('#bedTable thead th:last-child');
+
+    function apply(u) {
+      cells.forEach(function (td) {
+        var si = parseFloat(td.dataset.si);
+        if (u === 'imp') td.textContent = (si * 0.0624279606).toFixed(1);
+        else td.textContent = String(si).replace(/\B(?=(\d{3})+(?!\d))/, ' ');
+      });
+      if (head) head.textContent = u === 'imp' ? 'Density lb/ft³' : 'Density kg/m³';
+    }
+    units.forEach(function (b) {
+      b.addEventListener('click', function () {
+        units.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+        apply(b.dataset.u);
+      });
+    });
+  })();
+
   var form = document.getElementById('enq');
   if (form) {
     form.addEventListener('submit', function (e) {

@@ -29,6 +29,32 @@
   observe('.rv', '0px 0px -8% 0px', false);
   observe('.wipe', '0px 0px -10% 0px', true);
 
+  /* ---------------------------------------- timetable: filter by day */
+  (function () {
+    var chips = [].slice.call(document.querySelectorAll('.chip'));
+    var table = document.getElementById('timetableTable');
+    var count = document.getElementById('chipcount');
+    if (!chips.length || !table) return;
+    var rows = [].slice.call(table.querySelectorAll('tbody tr'));
+
+    function apply(day) {
+      var shown = 0;
+      rows.forEach(function (tr) {
+        var t = tr.querySelector('.t-time').textContent;
+        var hit = day === 'all' || t.indexOf(day) === 0;
+        tr.hidden = !hit;
+        if (hit) shown++;
+      });
+      count.textContent = shown + (shown === 1 ? ' session' : ' sessions');
+    }
+    chips.forEach(function (b) {
+      b.addEventListener('click', function () {
+        chips.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+        apply(b.dataset.day);
+      });
+    });
+  })();
+
   var form = document.getElementById('trialform');
   if (form) {
     form.addEventListener('submit', function (e) {
