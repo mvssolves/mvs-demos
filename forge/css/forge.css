@@ -118,6 +118,8 @@ section{padding-block:var(--s6)}
 .table th:last-child{text-align:right}
 @media(max-width:700px){
   .table thead{display:none}
+  .table .t-time{color:var(--sulphur); font-size:.72rem; letter-spacing:.1em}
+  .table .t-left{font-size:.68rem}
   .table tr{display:grid; grid-template-columns:auto 1fr; gap:.2rem var(--s2);
     padding-block:var(--s2); border-bottom:1px solid var(--hair-2)}
   .table td{border:0; padding:0}
@@ -143,7 +145,8 @@ section{padding-block:var(--s6)}
 .plate .frame img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
   filter:saturate(.45) contrast(1.12) brightness(.72);
   transition:transform .6s var(--snap), filter var(--fast) var(--snap)}
-.plate:hover .frame img{transform:scale(1.03); filter:saturate(.6) contrast(1.12) brightness(.86)}
+/* --pz, not transform: the parallax owns the transform property */
+.plate:hover .frame img{--pz:1.11; filter:saturate(.6) contrast(1.12) brightness(.86)}
 .plate figcaption{margin-top:.55rem; font-family:var(--mono); font-size:.62rem;
   letter-spacing:.14em; text-transform:uppercase; color:var(--bone-3)}
 .r-45 .frame{aspect-ratio:4/5} .r-32 .frame{aspect-ratio:3/2} .r-band .frame{aspect-ratio:21/8}
@@ -213,4 +216,66 @@ footer{border-top:1px solid var(--hair); padding-block:var(--s4)}
 @media (prefers-reduced-motion: reduce){
   *{transition-duration:.01ms !important}
   .js .wipe .frame::after{display:none}
+}
+
+
+/* ============================================================
+   Mobile navigation + second motion layer.
+   The nav links used to simply display:none under 880px, which
+   left a phone with no way to move around the page at all.
+   ============================================================ */
+
+#burger{display:none; position:fixed; top:calc(env(safe-area-inset-top) + 10px); right:var(--pad);
+  z-index:130; width:44px; height:44px; align-items:center; justify-content:center;
+  flex-direction:column; gap:6px; background:none; border:0; cursor:pointer; padding:0}
+#burger .bar{display:block; width:22px; height:1.5px; background:var(--bone); transition:transform .4s var(--mm-ease), opacity .3s, background-color .4s}
+#burger[aria-expanded="true"] .bar{background:var(--sulphur)}
+#burger[aria-expanded="true"] .bar:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+#burger[aria-expanded="true"] .bar:nth-child(2){opacity:0}
+#burger[aria-expanded="true"] .bar:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+#mnav{position:fixed; inset:0; z-index:120; background:var(--ink); color:var(--bone);
+  transform:translateY(-101%); transition:transform .62s var(--mm-ease); visibility:hidden;
+  display:flex; flex-direction:column; justify-content:space-between;
+  padding:calc(env(safe-area-inset-top) + 5rem) var(--pad) calc(env(safe-area-inset-bottom) + 2rem)}
+#mnav.open{transform:translateY(0); visibility:visible}
+#mnav .m-links{background:none; border:0; position:static; height:auto; display:block}
+#mnav a{display:block; font-family:var(--display); font-size:2.3rem; line-height:1.25;
+  text-decoration:none; color:var(--bone); padding:.25rem 0;
+  opacity:0; transform:translateY(18px);
+  transition:opacity .5s var(--mm-ease), transform .5s var(--mm-ease)}
+#mnav.open a{opacity:1; transform:none}
+#mnav .m-foot{font-family:var(--mono); font-size:.68rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--bone-2); line-height:1.9;
+  border-top:1px solid rgba(255,255,255,.22); padding-top:1.1rem}
+body.locked{overflow:hidden}
+
+.cta-short{display:none}
+@media(max-width:880px){
+  #burger{display:flex}
+  .cta-long{display:none} .cta-short{display:inline}
+  .mark{white-space:nowrap; font-size:.95rem}
+  /* keep the action in the header — only the wayfinding links move into the panel */
+  nav .nav-links{display:flex; margin-right:3.25rem; gap:0}
+  nav .nav-links a:not(.btn){display:none}
+  nav .nav-links .btn{font-size:.72rem; padding:.55rem .9rem}
+}
+
+/* nav retracts on the way down, returns on the way up */
+nav{transition:transform .45s var(--mm-ease)}
+body.nav-up nav{transform:translateY(-105%)}
+
+/* scroll-linked depth inside every framed image.
+   JS only ever writes --py; the transform itself stays here so hover and
+   reveal states can still compose with it. */
+.plate .frame img{transform:scale(var(--pz,1.06)) translate3d(0,var(--py,0),0); will-change:transform}
+.hero-fig img{will-change:transform}
+
+:root{--mm-ease:cubic-bezier(.22,.9,.28,1)}
+
+/* touch targets and tap feedback */
+@media(hover:none){
+  a,button{-webkit-tap-highlight-color:transparent}
+  nav a,.go,.btn,.pill,.slot{min-height:44px}
+  .go,.btn,.pill{display:inline-flex; align-items:center}
 }
