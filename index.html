@@ -31,16 +31,21 @@
   .item p{margin:.4rem 0 0; color:#9A948A; max-width:52ch}
   .item .go{white-space:nowrap; color:#7C776E}
   @media(max-width:700px){a.item{grid-template-columns:2.5rem minmax(0,1fr)} .item .go{grid-column:2}}
+.skip{position:fixed; top:.5rem; left:.5rem; z-index:200; transform:translateY(-160%);
+    padding:.7rem 1rem; background:#E8E4DC; color:#111; text-decoration:none; font-size:.8rem;
+    transition:transform .25s ease}
+  .skip:focus,.skip:focus-visible{transform:none}
   footer{margin-top:clamp(3rem,8vh,5rem); color:#7C776E; font-size:.62rem; letter-spacing:.2em; text-transform:uppercase}
 </style>
 </head>
 <body>
+<a class="skip" href="#list">Skip to the list</a>
 <div class="wrap">
   <span class="k">MVS Solves — demo builds</span>
   <h1 style="margin-top:1.4rem">Five sites, five systems.<br>Nothing shared between them.</h1>
   <p style="margin-top:1.4rem; color:#9A948A; max-width:56ch">Each one is built from its own tokens, its own type pairing and its own motion language. That is the point — a house style applied to every trade is how agency work starts looking like a template.</p>
 
-  <div class="list">
+  <div class="list" id="list">
     <a class="item" href="stone/">
       <span class="k">01</span>
       <span>
