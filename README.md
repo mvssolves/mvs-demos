@@ -12,7 +12,11 @@ by sector.
 python3 -m http.server 8080
 ```
 
-Static. No framework, no build step, no dependencies.
+Static. No build step. One shared engine — GSAP, ScrollTrigger, SplitText,
+Flip and Lenis, vendored in `lib/` and cached across all six — plus `lib/fx.js`,
+which is infrastructure only: it holds no colour, type, spacing or easing curve.
+Every build writes its own choreography on top, which is why they still look
+like six different studios made them.
 
 ## The builds
 
@@ -118,13 +122,38 @@ Each build got one interaction its own data needed — not motion for decoration
 
 ## Motion
 
-1. Reveals that pre-hide only below the fold.
-2. Nav retracts on the way down, returns on the way up, past the fold only.
-3. Scroll-linked depth inside framed images, driven through a `--py` custom
-   property so hover and reveal states compose with it rather than fighting an
-   inline transform.
+Each build has its own motion personality, not a shared reveal applied six times:
 
-All of it disables under `prefers-reduced-motion`.
+| Build | Moves like |
+|---|---|
+| Oyster | Liquid. Long eases, nothing snaps, the statement slows to a stop word by word |
+| Datum | Mechanical. Stepped easing throughout, hovers cut, chalk lines snap rather than draw, figures tick up like a counter |
+| Marrow | Cinema. Long holds, then the menu arrives all at once. Pinned, scrubbed fire sequence |
+| Micron | Precise. Short, no overshoot, nothing bounces. The paint readings count up because they are readings |
+| Icehouse | Architectural. Weighty, measured, and the ride is a real pin with scrub |
+| Dispatch | Barely at all — and that is the position. Nobody at 6am with no heat wants to be impressed |
+
+**The WebGL image layer** (`FX.gl`) puts a shader over a photograph: scroll
+velocity bows it, the pointer pushes a soft lens into it, and it can reveal
+through noise instead of a fade. It inherits the build's own CSS grading, so
+art direction survives. No WebGL, no JS, or reduced motion — you get the
+photograph.
+
+**Reduced motion means none.** Every reveal here is scroll-linked, and a
+scroll-linked tween that has not fired yet is just content at opacity zero. So
+the whole choreography is skipped and the page renders as plain markup.
+
+## Mobile: separate compositions, not a narrowed desktop
+
+Each build gets its own phone layout, and the hero swaps to a portrait crop of
+the same frame through `<picture>`:
+
+- **Oyster** — treatments become a swipeable deck, each card carrying its own plate; the running total follows you down the page
+- **Datum** — setting-out lines drop, the fleet table rebuilds as labelled rows
+- **Marrow** — the pinned fire sequence becomes a swipeable strip; the headline gets *bigger*
+- **Micron** — hero fills the screen, lamp becomes a full-width control, tiers become a deck
+- **Icehouse** — you cannot ride a building with one thumb, so the floors become a deck with a dot indicator
+- **Dispatch** — "next available" goes full width first; rates become labelled rows
 
 ## Mobile
 
