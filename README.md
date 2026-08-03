@@ -1,38 +1,37 @@
-# MVS Solves — demo builds
+# MVS Solves — demo library
 
-Five demonstration sites. Different trades, different systems, nothing shared.
+Working demo builds. Each one is a complete site with its own design system —
+its own palette, type pairing, motion language and layout logic. Nothing is
+shared between them, which is the point: a house style stretched over every
+trade is how agency work starts reading as a template.
 
-| | Build | System |
-|---|---|---|
-| 01 | **Grange & Son** — architectural stone yard | Chalk `#E9E5DC` + cobalt `#1E2F87` + ink. Big Shoulders Display / Chivo Mono. Hard horizontal colour split with a mass crossing the seam, monospace spec rows, dashed proof-sheet marks, machined easing `cubic-bezier(.85,0,.15,1)`. All photography desaturated at source so cobalt is the only colour on the page. |
-| 02 | **Coldharbour** — single-cask distillery | Paper `#F4F1EA` + ink + one amber `#A9662A` borrowed from the photographs. Italiana / Jost. Letter-spacing as the layout, museum-plaque symmetry, full-bleed material plates, near-zero motion — one wordmark settle and long fades. |
-| 03 | **Wren Street** — private women's health practice | Paper `#F6F4F0` + ink + iodine violet `#4B3A6B`. Instrument Serif / Karla. A lozenge crop used on every framed thing — the capsule shape as the UI shape. Abstract micrographs stand in for stock medical photography. Booking is the spine of the page. |
-| 04 | **Blacksmith Row** — barbell gym | Ink `#0E0E0D` + bone + one sulphur `#D6DE49` that only ever marks a number or something pressable. Archivo Black / Archivo / DM Mono. Solid-and-outline display over peak-action photography; the timetable is a real table. |
-| 05 | **Ridley & Vaux** — commercial disputes set | Shell `#F2F0EB` + ink + oxblood `#6B2230`. Petrona / IBM Plex Mono. No photographs of people at all — credibility comes from the practice index, the record and the list of members by call. |
-
-, no build step, no dependencies. Both render complete
-with JavaScript off; reveals only ever pre-hide what is already below the fold.
-
-## Where the directions come from
-
-Traced to entries in `04 Web Projects/inspiration.md`, not invented:
-
-- **Grange & Son** — CURA (hard colour split, mass crossing the seam, off-script
-  industry colour), Direct Lending (stat sidebar on restrained neutral), Longbow
-  (proof-sheet crosshairs as UI chrome).
-- **Coldharbour** — sakazuki (macro material full-bleed, mark at the focal point),
-  AIR (word spread across the full width, whitespace as the material), sen
-  (background sampled from the product's own surface).
-
-## Images
-
-Unsplash free-licence only, fetched at final crop via imgix params. Source URLs per
-file in each `img/credits.json`. Stone set is desaturated at fetch time.
+The index is a library: cards showing each build's actual landing page, filtered
+by sector.
 
 ```bash
 python3 -m http.server 8080
 ```
 
+Static. No framework, no build step, no dependencies.
+
+## The builds
+
+| | Build | Sector | System |
+|---|---|---|---|
+| 01 | **Wren Street** | Private clinic | Paper `#F6F4F0` + iodine violet `#4B3A6B`. Instrument Serif / Karla. The capsule is the recurring container shape; abstract micrographs replace stock medical photography. |
+| 02 | **Blacksmith Row** | Barbell gym | Ink `#0E0E0D` + one sulphur `#D6DE49` that only ever marks a number or something pressable. Archivo Black / Archivo / DM Mono. |
+| 03 | **Ridley & Vaux** | Barristers' chambers | Shell `#F2F0EB` + oxblood `#6B2230`. Petrona / IBM Plex Mono. No photographs of people anywhere. |
+
+## Where the directions come from
+
+Traced to entries in `04 Web Projects/inspiration.md`, not invented:
+
+- **Wren Street** — ABL (abstract macro instead of stock medical), Medico
+  (packaging form used as the UI shape), La Caminera (CTA segmented by visitor type)
+- **Blacksmith Row** — XNRGY (peak action doing motion's job), Fashora (subject
+  against huge type), CINETIK (one accent, used identically everywhere)
+- **Ridley & Vaux** — Direct Lending (figures as credibility), AGENTURA
+  (portrait-free restraint), PRØDUX (image and philosophy making the same argument)
 
 ## Shared discipline (not shared design)
 
@@ -44,58 +43,49 @@ curve:
 - a `.frame` element owns every image ratio, so grids compose on mixed sources
 - reveals pre-hide **only** what is below the fold, so nothing visible can flash
 - every page renders complete with JavaScript disabled
-- labels are checked for contrast; `--ink-3`-class tokens are never used for body
-
-## Where the directions come from
-
-Traced to entries in `04 Web Projects/inspiration.md`, not invented:
-
-- **Grange & Son** — CURA, Direct Lending, Longbow
-- **Coldharbour** — sakazuki, AIR, sen
-- **Wren Street** — ABL (abstract macro over stock medical), Medico (packaging form as UI shape), La Caminera (CTA segmented by visitor type)
-- **Blacksmith Row** — XNRGY (peak action doing motion's job), Fashora (subject against huge type), CINETIK (one accent, used identically everywhere)
-- **Ridley & Vaux** — Direct Lending (figures as credibility), AGENTURA (portrait-free restraint), PRØDUX (image and philosophy making the same argument)
-
-
-## Mobile
-
-Every site is built for a phone first-class, not shrunk into one.
-
-- A burger and a full-screen panel in each site's own palette and display face.
-  Links rise in sequence, escape closes, scroll locks behind it, and a resize
-  guard closes it if the viewport grows past the breakpoint.
-- Clinic and Forge keep their booking action in the header at a shortened label;
-  the other three have no header action to keep.
-- Audited at 375px: **no horizontal overflow anywhere, nothing interactive under
-  44px**, every image carries alt text, every field carries a label.
-- Touch rules are keyed off viewport width as well as pointer type, because a
-  narrow window on a laptop still gets imprecise input.
+- labels are contrast-checked; `--ink-3`-class tokens are never used for body text
 
 ## Interaction, where the content earns it
 
-Each site got one interaction its own data actually needed — not motion for
-decoration:
+Each build got one interaction its own data needed — not motion for decoration:
 
-| Site | Interaction |
+| Build | Interaction |
 |---|---|
-| Grange & Son | Bed densities convert in place, kg/m³ ↔ lb/ft³ |
+| Wren Street | Booking writes back a live summary (slot, reason, the visit length that reason implies) and validates properly |
 | Blacksmith Row | The 18-session timetable filters by day, with a live count |
-| Ridley & Vaux | The members index filters to silks or juniors — 3 + 8 = 11 |
-| Wren Street | Booking writes back a live summary (slot, reason, visit length) and validates properly |
-| Coldharbour | Nothing. Stillness is the argument; its parallax is deliberately inert |
+| Ridley & Vaux | The members index filters to silks or juniors — 3 + 8 = 11, matching the hero |
 
-## Motion layers
+## Motion
 
-1. Reveals that pre-hide **only** below the fold, so nothing visible can flash.
+1. Reveals that pre-hide only below the fold.
 2. Nav retracts on the way down, returns on the way up, past the fold only.
 3. Scroll-linked depth inside framed images, driven through a `--py` custom
    property so hover and reveal states compose with it rather than fighting an
    inline transform.
 
-All of it disables under `prefers-reduced-motion`, and every page renders
-complete with JavaScript off.
+All of it disables under `prefers-reduced-motion`.
 
-## Share cards
+## Mobile
 
-Each site has a generated 1200×630 `og.png` built from its own palette, display
-face and headline — a pasted link looks like the site it points at.
+Built for phones first-class, not shrunk into one.
+
+- A burger and full-screen panel in each site's own palette and display face,
+  with sequenced links, escape-to-close, scroll lock and a resize guard.
+- Clinic and Forge keep their booking action in the header at a shortened label.
+- Audited at 375px: **no horizontal overflow, nothing interactive under 44px**,
+  every image has alt text, every field has a label.
+
+## Assets
+
+- Photography: Unsplash, free licence only. Source URLs per file in each
+  `img/credits.json`.
+- `preview.jpg` / `og.png` per build are generated from that build's own hero
+  photograph, palette and headline, so a card and a pasted link both look like
+  the site they point at.
+
+## Previously here
+
+Two earlier builds — Grange & Son (architectural stone) and Coldharbour
+(single-cask distillery) — were removed from the library. They remain in git
+history if the CURA colour-split or the AIR letter-spacing treatment is ever
+wanted again.

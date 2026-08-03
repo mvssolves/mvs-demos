@@ -67,6 +67,9 @@ nav{position:sticky; top:0; z-index:40; background:rgba(14,14,13,.92);
   text-transform:uppercase; text-decoration:none; color:var(--bone-2);
   transition:color var(--fast) var(--snap)}
 .nav-links a:hover{color:var(--sulphur)}
+/* same specificity trap: the CTA must keep its own colour */
+.nav-links a.btn{color:var(--ink)}
+.nav-links a.btn:hover{color:var(--sulphur)}
 @media(max-width:880px){.nav-links a:not(.btn){display:none}}
 
 .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.7rem 1.15rem;
@@ -172,6 +175,8 @@ section{padding-block:var(--s6)}
 
 /* ---------- membership rows ---------- */
 .plans{border-top:1px solid var(--hair)}
+#first .plan{grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr) auto auto}
+#first .plan .k{text-align:right; white-space:nowrap}
 .plan{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) auto auto;
   gap:var(--s1) var(--s3); align-items:baseline; padding-block:var(--s3);
   border-bottom:1px solid var(--hair-2)}
@@ -181,6 +186,8 @@ section{padding-block:var(--s6)}
   white-space:nowrap; text-align:right; display:grid; gap:.15rem; justify-items:end}
 @media(max-width:820px){
   .plan{grid-template-columns:1fr auto}
+  #first .plan{grid-template-columns:1fr auto}
+  #first .plan .k{grid-column:1/-1; text-align:left}
   .plan p{grid-column:1/-1}
   .plan .btn{grid-column:1/-1; justify-self:start; margin-top:var(--s1)}
 }

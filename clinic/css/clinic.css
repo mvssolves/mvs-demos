@@ -66,6 +66,9 @@ nav{position:sticky; top:0; z-index:40; background:rgba(246,244,240,.9);
 .nav-links a{font-size:.8rem; text-decoration:none; color:var(--ink-2);
   transition:color var(--slow) var(--ease)}
 .nav-links a:hover{color:var(--iodine)}
+/* the CTA carries its own colour — .nav-links a would otherwise win on specificity */
+.nav-links a.pill{color:var(--paper)}
+.nav-links a.pill:hover{color:var(--iodine)}
 @media(max-width:880px){.nav-links a:not(.pill){display:none}}
 
 .pill{display:inline-flex; align-items:center; gap:.5rem; border-radius:var(--lozenge);
