@@ -1,4 +1,13 @@
-# MVS Solves — demo library
+# MVS Solves — theme gallery
+
+> **Picking this up cold? Read [HANDOFF.md](HANDOFF.md) first.** It carries the
+> full state: every decision, every bug found and why, what works for sourcing
+> assets and what doesn't, known issues, and the outstanding work in order.
+
+These are **six single-page concepts**, not six finished websites — visual
+directions a client can point at. The gallery says so plainly on the front
+page, and it must keep saying so.
+
 
 Working demo builds. Each one is a complete site with its own design system —
 its own palette, type pairing, motion language and layout logic. Nothing is
