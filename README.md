@@ -9,13 +9,13 @@ directions a client can point at. The gallery says so plainly on the front
 page, and it must keep saying so.
 
 
-Working demo builds. Each one is a complete site with its own design system —
-its own palette, type pairing, motion language and layout logic. Nothing is
-shared between them, which is the point: a house style stretched over every
-trade is how agency work starts reading as a template.
+Each concept has its own design system — its own palette, type pairing, motion
+language and layout logic. Nothing is shared between them but `lib/`, which is
+the point: a house style stretched over every trade is how agency work starts
+reading as a template.
 
-The index is a library: cards showing each build's actual landing page, filtered
-by sector.
+What is real in each one is the design system. The businesses are invented and
+the photography is licensed stock. The front page says both, plainly.
 
 ```bash
 python3 -m http.server 8080
